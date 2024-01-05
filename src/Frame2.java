@@ -3,6 +3,11 @@ import java.awt.*;
 import java.awt.datatransfer.Transferable;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.awt.image.ConvolveOp;
+import java.awt.image.Kernel;
 
 public class Frame2 extends DefaultFrame {
     public Frame2(){
@@ -38,8 +43,28 @@ public class Frame2 extends DefaultFrame {
 
             JLabel imageLabel = new JLabel(img);
             imagepanel.add(imageLabel);
-        }
 
+            ImageIcon originalIcon = (ImageIcon) imageLabel.getIcon();
+            imageLabel.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    System.out.println("Clicked");
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    BufferedImage originalImage = convertImageIconToBufferedImage(originalIcon);
+                    BufferedImage blurredImage = blurImage(originalImage, 10); // Apply blur
+                    ImageIcon blurredIcon = new ImageIcon(blurredImage);
+                    imageLabel.setIcon(blurredIcon);
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    imageLabel.setIcon(originalIcon); // Restore original image
+                }
+            });
+        }
         super.add(imagepanel);
         super.revalidate();
         super.repaint();
@@ -54,5 +79,47 @@ public class Frame2 extends DefaultFrame {
 
         // Repaint the frame
         super.repaint();
+    }
+
+    private static void addHoverBlurEffect(JLabel label) {
+        ImageIcon originalIcon = (ImageIcon) label.getIcon();
+        BufferedImage originalImage = convertImageIconToBufferedImage(originalIcon);
+
+        label.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                BufferedImage blurredImage = blurImage(originalImage, 10); // Apply blur
+                ImageIcon blurredIcon = new ImageIcon(blurredImage);
+                label.setIcon(blurredIcon);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                label.setIcon(originalIcon); // Restore original image
+            }
+        });
+    }
+
+    public static BufferedImage blurImage(BufferedImage originalImage, int blurRadius) {
+        BufferedImage blurredImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
+
+        float[] blurMatrix = new float[blurRadius * blurRadius];
+        for (int i = 0; i < blurMatrix.length; i++) {
+            blurMatrix[i] = 1.0f / blurMatrix.length;
+        }
+
+        Kernel kernel = new Kernel(blurRadius, blurRadius, blurMatrix);
+        ConvolveOp op = new ConvolveOp(kernel);
+        op.filter(originalImage, blurredImage);
+
+        return blurredImage;
+    }
+
+    public static BufferedImage convertImageIconToBufferedImage(ImageIcon icon) {
+        BufferedImage image = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
+        Graphics g = image.createGraphics();
+        icon.paintIcon(null, g, 0, 0);
+        g.dispose();
+        return image;
     }
 }
