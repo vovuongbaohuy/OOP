@@ -81,25 +81,6 @@ public class Frame2 extends DefaultFrame {
         super.repaint();
     }
 
-    private static void addHoverBlurEffect(JLabel label) {
-        ImageIcon originalIcon = (ImageIcon) label.getIcon();
-        BufferedImage originalImage = convertImageIconToBufferedImage(originalIcon);
-
-        label.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                BufferedImage blurredImage = blurImage(originalImage, 10); // Apply blur
-                ImageIcon blurredIcon = new ImageIcon(blurredImage);
-                label.setIcon(blurredIcon);
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                label.setIcon(originalIcon); // Restore original image
-            }
-        });
-    }
-
     public static BufferedImage blurImage(BufferedImage originalImage, int blurRadius) {
         BufferedImage blurredImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
 
