@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 public class Frame2 extends DefaultFrame {
     private JButton selectedImagePanelButton;
+    private ImageIcon[] initialImageIcons;
 
     public Frame2() {
         super();
@@ -17,10 +18,7 @@ public class Frame2 extends DefaultFrame {
 
         // Create default layout for main panel buttons
         for (int i = 0; i < 9; i++) {
-            ImageIcon img = new ImageIcon("images/snowflake.jpg");
-            Image newImg = img.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
-            img = new ImageIcon(newImg);
-            JButton button = new JButton(img);
+            JButton button = new JButton();
             button.addActionListener(new MainPanelButtonListener(button));
             panel.add(button);
         }
@@ -34,16 +32,15 @@ public class Frame2 extends DefaultFrame {
         imagepanel.setBackground(new Color(20, 87, 20));
 
         // Create default layout for image panel buttons
+        initialImageIcons = new ImageIcon[9];
         for (int i = 0; i < 9; i++) {
             ImageIcon img = new ImageIcon("images/" + (i + 1) + ".jpg");
             Image newImg = img.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
             img = new ImageIcon(newImg);
+            initialImageIcons[i] = img;
 
-            JButton button = new JButton(img);
-            button.setBorderPainted(true);
-            button.setContentAreaFilled(false);
-            button.setPreferredSize(new Dimension(100, 100));
-            button.addActionListener(new ImagePanelButtonListener(button));
+            JButton button = createImagePanelButton("images/" + (i + 1) + ".jpg");
+            button.addActionListener(new ImagePanelButtonListener(button, i));
             imagepanel.add(button);
         }
 
@@ -77,29 +74,52 @@ public class Frame2 extends DefaultFrame {
 
     private class ImagePanelButtonListener implements ActionListener {
         private final JButton imagePanelButton;
+        private final int buttonIndex;
 
-        public ImagePanelButtonListener(JButton imagePanelButton) {
+        public ImagePanelButtonListener(JButton imagePanelButton, int buttonIndex) {
             this.imagePanelButton = imagePanelButton;
+            this.buttonIndex = buttonIndex;
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
             if (selectedImagePanelButton != null) {
-                // Get the image from the clicked button
+                // Get the icon from the clicked button in the image panel
                 ImageIcon selectedImage = (ImageIcon) imagePanelButton.getIcon();
 
-                // Scale the image to 200x200 pixels
-                Image scaledImage = selectedImage.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
-                ImageIcon scaledIcon = new ImageIcon(scaledImage);
+                if (selectedImage == null) {
+                    // If it was blank, restore the initial image of the clicked button in the image panel
+                    imagePanelButton.setIcon(initialImageIcons[buttonIndex]);
 
-                // Replace the image in the main panel button with the scaled image
-                selectedImagePanelButton.setIcon(scaledIcon);
+                    // Reset the icon of the clicked button in the main panel to blank
+                    selectedImagePanelButton.setIcon(null);
+                } else {
+                    // Scale the image to 200x200 pixels
+                    Image scaledImage = selectedImage.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+                    ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
-                // Set the icon of the clicked button in the image panel to null (remove the icon)
-                imagePanelButton.setIcon(null);
+                    // Replace the image in the main panel button with the scaled image
+                    selectedImagePanelButton.setIcon(scaledIcon);
+
+                    // Set the icon of the clicked button in the image panel to null (remove the icon)
+                    imagePanelButton.setIcon(null);
+                }
 
                 selectedImagePanelButton = null;
             }
         }
+    }
+
+    private JButton createImagePanelButton(String imagePath) {
+        ImageIcon img = new ImageIcon(imagePath);
+        Image newImg = img.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+        img = new ImageIcon(newImg);
+
+        JButton button = new JButton(img);
+        button.setBorderPainted(true);
+        button.setContentAreaFilled(false);
+        button.setPreferredSize(new Dimension(100, 100));
+
+        return button;
     }
 }
