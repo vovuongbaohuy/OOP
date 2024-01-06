@@ -9,22 +9,24 @@ import java.awt.image.BufferedImage;
 import java.awt.image.ConvolveOp;
 import java.awt.image.Kernel;
 
-public class Frame2 extends DefaultFrame {
+public class Frame2 extends DefaultFrame implements ActionListener {
     public Frame2(){
         super();
+        super.getContentPane().setBackground(new Color(55,159, 55));
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(3, 3));
         panel.setBounds(300, 0, super.getWidth() - 600, (int) (super.getHeight() * 2.0 / 3.0));
 
-        //Create a default layout for the board
+//Create a default layout for the board
         for(int i = 0; i < 9; i++ ){
             ImageIcon img = new ImageIcon("images/snowflake.jpg");
             Image newImg = img.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
             img = new ImageIcon(newImg);
-
-            JLabel imageLabel = new JLabel(img);
-            panel.add(imageLabel);
+            JButton button = new JButton(img);
+//            button.setBorderPainted(true);
+            panel.add(button);
         }
+
 
         super.add(panel,BorderLayout.NORTH);
         super.revalidate();
@@ -34,6 +36,7 @@ public class Frame2 extends DefaultFrame {
         int[] images = {1,2,3,4,5,6,7,8,9};
         int panelHeight = 100; // Adjust the height as needed
         imagepanel.setBounds(0, 650, 1200, panelHeight);
+        imagepanel.setBackground(new Color(20, 87,20));
 
         // set pieces at the bottom of the game
         for(int i=0; i < images.length; i++){
@@ -102,5 +105,14 @@ public class Frame2 extends DefaultFrame {
         icon.paintIcon(null, g, 0, 0);
         g.dispose();
         return image;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
+
+    public void chooseImage(){
+
     }
 }
