@@ -7,6 +7,7 @@ import java.awt.image.ConvolveOp;
 import java.awt.image.Kernel;
 
 public class Frame {
+    private static ImageIcon selectedImage; // Added variable to keep track of the selected image
     public static void main(String[] args){
         JFrame frame = new JFrame();
         frame.setTitle("Verflixt Spiel");
@@ -28,6 +29,23 @@ public class Frame {
 
             JLabel imageLabel = new JLabel(img);
             panel.add(imageLabel);
+
+            // Add click listener to each label in the grid layout
+            imageLabel.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e){
+                    if(selectedImage != null){
+                        //Get the size of the label in the grid layout
+                        int labelWidth = imageLabel.getWidth();
+                        int labelHeight = imageLabel.getHeight();
+
+                        //Scale the selected image to match the size of the label
+                        Image selectedImg = selectedImage.getImage().getScaledInstance(labelWidth, labelHeight, Image.SCALE_SMOOTH);
+                        ImageIcon resizedImage = new ImageIcon(selectedImg);
+                        imageLabel.setIcon(resizedImage); // Set the selected image to the clicked box
+                    }
+                }
+            });
         }
 
         frame.add(panel,BorderLayout.NORTH);
@@ -49,9 +67,12 @@ public class Frame {
             imagepanel.add(imageLabel);
 
             ImageIcon originalIcon = (ImageIcon) imageLabel.getIcon();
+            ImageIcon finalImg = img;
+            ImageIcon finalImg1 = img;
             imageLabel.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
+                    selectedImage = finalImg1; // Set the selected image
                     System.out.println("Clicked");
                 }
 
