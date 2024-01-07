@@ -47,6 +47,17 @@ public class Frame2 extends DefaultFrame {
         // Add the image panel to the frame
         super.add(imagepanel);
 
+
+        // rotate panel
+        JPanel rotatepanel = new JPanel(new GridLayout(3, 3));
+        rotatepanel.setBounds(50, 50, 150, 150);
+        rotatepanel.setBackground(new Color(20, 200, 20));
+        for (int i = 0; i < 9; i++) {
+            JButton button = createRotatePanelButton(i + 1);
+            rotatepanel.add(button);
+        }
+        super.add(rotatepanel);
+
         // Create a new button
         JButton submitButton = new JButton("Submit!");
         submitButton.setBounds(400, 600, 400, 50);
@@ -119,6 +130,15 @@ public class Frame2 extends DefaultFrame {
         button.setBorderPainted(true);
         button.setContentAreaFilled(false);
         button.setPreferredSize(new Dimension(100, 100));
+
+        return button;
+    }
+
+    private JButton createRotatePanelButton(int number){
+        JButton button = new JButton(Integer.toString(number));
+        button.setBorderPainted(true);
+        button.setContentAreaFilled(false);
+        button.setPreferredSize(new Dimension(50, 50));
 
         return button;
     }
