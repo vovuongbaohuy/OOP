@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.AffineTransform;
+import java.awt.image.BufferedImage;
 
 public class Frame2 extends DefaultFrame {
     private JButton selectedImagePanelButton;
@@ -18,7 +20,7 @@ public class Frame2 extends DefaultFrame {
 
         // Create default layout for main panel buttons
         for (int i = 0; i < 9; i++) {
-            JButton button = new JButton();
+            JButton button = createPanelButton(i + 1);
             button.addActionListener(new MainPanelButtonListener(button));
             panel.add(button);
         }
@@ -47,8 +49,20 @@ public class Frame2 extends DefaultFrame {
         // Add the image panel to the frame
         super.add(imagepanel);
 
+        // rotate panel
+        JPanel rotatepanel = new JPanel(new GridLayout(3, 3));
+        rotatepanel.setBounds(50, 50, 150, 150);
+        rotatepanel.setBackground(new Color(20, 200, 20));
+        for (int i = 0; i < 9; i++) {
+            JButton button = createRotatePanelButton(i + 1);
+            button.addActionListener(new RotatePanelButtonListener(i + 1, panel));
+            rotatepanel.add(button);
+        }
+        super.add(rotatepanel);
+
         // Create a new button
         JButton submitButton = new JButton("Submit!");
+        submitButton.setBackground(Color.white);
         submitButton.setBounds(400, 600, 400, 50);
 
         super.add(submitButton);
@@ -110,6 +124,14 @@ public class Frame2 extends DefaultFrame {
         }
     }
 
+    private JButton createPanelButton(int number) {
+        JButton button = new JButton();
+        button.setBorderPainted(true);
+        button.setContentAreaFilled(false);
+        button.setPreferredSize(new Dimension(200, 200));
+        button.setName(Integer.toString(number));
+        return button;
+    }
     private JButton createImagePanelButton(String imagePath) {
         ImageIcon img = new ImageIcon(imagePath);
         Image newImg = img.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
@@ -121,5 +143,62 @@ public class Frame2 extends DefaultFrame {
         button.setPreferredSize(new Dimension(100, 100));
 
         return button;
+    }
+
+    private JButton createRotatePanelButton(int number) {
+        JButton button = new JButton(Integer.toString(number));
+        button.setBorderPainted(true);
+        button.setContentAreaFilled(false);
+        button.setPreferredSize(new Dimension(50, 50));
+
+        return button;
+    }
+
+    private class RotatePanelButtonListener implements ActionListener {
+        private final int buttonNumber;
+        private final JPanel mainPanel;
+
+        public RotatePanelButtonListener(int buttonNumber, JPanel mainPanel) {
+            this.buttonNumber = buttonNumber;
+            this.mainPanel = mainPanel;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // Rotate the image of the corresponding button in the main panel
+            for (Component component : mainPanel.getComponents()) {
+                if (component instanceof JButton) {
+                    JButton mainPanelButton = (JButton) component;
+                    if (Integer.parseInt(mainPanelButton.getName()) == buttonNumber) {
+                        rotateButtonImage(mainPanelButton);
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void rotateButtonImage(JButton button) {
+            // Get the icon from the button
+            ImageIcon buttonIcon = (ImageIcon) button.getIcon();
+
+            if (buttonIcon != null) {
+                // Rotate the image
+                Image rotatedImage = rotateImage(buttonIcon.getImage(), Math.toRadians(90));
+                button.setIcon(new ImageIcon(rotatedImage));
+            }
+        }
+
+        private Image rotateImage(Image image, double angle) {
+            AffineTransform transform = new AffineTransform();
+            transform.rotate(angle, image.getWidth(null) / 2.0, image.getHeight(null) / 2.0);
+
+            BufferedImage rotatedImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+            Graphics2D g = rotatedImage.createGraphics();
+            g.setTransform(transform);
+            g.drawImage(image, 0, 0, null);
+            g.dispose();
+
+            return rotatedImage;
+        }
     }
 }
