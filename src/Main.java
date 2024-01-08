@@ -1,5 +1,8 @@
 public class Main {
     public static void main(String[] args) {
+        Frame1 frame1 = new Frame1();
+//        Frame2 frame2 = new Frame2();
+        System.out.println("Hello world!");
         Card_1 card_1 = new Card_1();
         Card_2 card_2 = new Card_2();
         Card_3 card_3 = new Card_3();
