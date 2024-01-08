@@ -43,7 +43,7 @@ public class Frame2 extends DefaultFrame {
             img = new ImageIcon(newImg);
             initialImageIcons[i] = img;
 
-            JButton button = createImagePanelButton("images/" + (i + 1) + ".jpg");
+            JButton button = createImagePanelButton("images/" + (i + 1) + ".jpg", i + 10);
             button.addActionListener(new ImagePanelButtonListener(button, i));
             imagepanel.add(button);
         }
@@ -122,11 +122,14 @@ public class Frame2 extends DefaultFrame {
                     }
 
                 } else {
-                    // If it was blank, restore the initial image of the clicked button in the image panel
-                    imagePanelButton.setIcon(initialImageIcons[buttonIndex]);
+                    if (selectedImagePanelButton.getIcon() != null){
+                        // If it was blank, restore the initial image of the clicked button in the image panel
+                        imagePanelButton.setIcon(initialImageIcons[buttonIndex]);
 
-                    // Reset the icon of the clicked button in the main panel to blank
-                    selectedImagePanelButton.setIcon(null);
+                        // Reset the icon of the clicked button in the main panel to blank
+                        selectedImagePanelButton.setIcon(null);
+                    }
+
                 }
 
                 selectedImagePanelButton = null;
@@ -147,7 +150,7 @@ public class Frame2 extends DefaultFrame {
         button.setName(Integer.toString(number));
         return button;
     }
-    private JButton createImagePanelButton(String imagePath) {
+    private JButton createImagePanelButton(String imagePath, int number) {
         ImageIcon img = new ImageIcon(imagePath);
         Image newImg = img.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         img = new ImageIcon(newImg);
@@ -159,6 +162,7 @@ public class Frame2 extends DefaultFrame {
 
         // Set the image path as the action command
         button.setActionCommand(imagePath);
+        button.setName(Integer.toString(number));
 
         return button;
     }
