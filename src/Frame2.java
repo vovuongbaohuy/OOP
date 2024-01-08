@@ -16,7 +16,7 @@ public class Frame2 extends DefaultFrame {
         // Create the main panel with GridLayout
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(3, 3));
-        panel.setBounds(300, 0, super.getWidth() - 600, (int) (super.getHeight() * 2.0 / 3.0));
+        panel.setBounds(375, 100, 450, 450);
 
         // Create default layout for main panel buttons
         for (int i = 0; i < 9; i++) {
@@ -26,7 +26,9 @@ public class Frame2 extends DefaultFrame {
         }
 
         // Add the main panel to the frame
-        super.add(panel, BorderLayout.NORTH);
+//        super.add(panel, BorderLayout.NORTH);
+        super.add(panel);
+
 
         // Create the image panel with GridLayout
         JPanel imagepanel = new JPanel(new GridLayout(1, 9));
@@ -99,17 +101,17 @@ public class Frame2 extends DefaultFrame {
         public void actionPerformed(ActionEvent e) {
             if (selectedImagePanelButton != null) {
                 // Get the icon from the clicked button in the image panel
-                ImageIcon selectedImage = (ImageIcon) imagePanelButton.getIcon();
+                ImageIcon selectedImageIcon = (ImageIcon) imagePanelButton.getIcon();
 
-                if (selectedImage == null) {
-                    // If it was blank, restore the initial image of the clicked button in the image panel
-                    imagePanelButton.setIcon(initialImageIcons[buttonIndex]);
+                if (selectedImageIcon != null) {
+                    // Get the file path of the image from the image panel button
+                    String imagePath = getImagePathFromButton(imagePanelButton);
 
-                    // Reset the icon of the clicked button in the main panel to blank
-                    selectedImagePanelButton.setIcon(null);
-                } else {
+                    // Create an ImageIcon directly from the file path
+                    ImageIcon originalImageIcon = new ImageIcon(imagePath);
+
                     // Scale the image to 200x200 pixels
-                    Image scaledImage = selectedImage.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+                    Image scaledImage = originalImageIcon.getImage().getScaledInstance(150, 150, Image.SCALE_REPLICATE);
                     ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
                     // Replace the image in the main panel button with the scaled image
@@ -117,6 +119,12 @@ public class Frame2 extends DefaultFrame {
 
                     // Set the icon of the clicked button in the image panel to null (remove the icon)
                     imagePanelButton.setIcon(null);
+                } else {
+                    // If it was blank, restore the initial image of the clicked button in the image panel
+                    imagePanelButton.setIcon(initialImageIcons[buttonIndex]);
+
+                    // Reset the icon of the clicked button in the main panel to blank
+                    selectedImagePanelButton.setIcon(null);
                 }
 
                 selectedImagePanelButton = null;
@@ -124,6 +132,10 @@ public class Frame2 extends DefaultFrame {
         }
     }
 
+    private String getImagePathFromButton(JButton button) {
+        // Assuming that the image path is stored as the action command of the button
+        return button.getActionCommand();
+    }
     private JButton createPanelButton(int number) {
         JButton button = new JButton();
         button.setBorderPainted(true);
@@ -142,8 +154,12 @@ public class Frame2 extends DefaultFrame {
         button.setContentAreaFilled(false);
         button.setPreferredSize(new Dimension(100, 100));
 
+        // Set the image path as the action command
+        button.setActionCommand(imagePath);
+
         return button;
     }
+
 
     private JButton createRotatePanelButton(int number) {
         JButton button = new JButton(Integer.toString(number));
@@ -192,7 +208,7 @@ public class Frame2 extends DefaultFrame {
             AffineTransform transform = new AffineTransform();
             transform.rotate(angle, image.getWidth(null) / 2.0, image.getHeight(null) / 2.0);
 
-            BufferedImage rotatedImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+            BufferedImage rotatedImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TRANSLUCENT);
             Graphics2D g = rotatedImage.createGraphics();
             g.setTransform(transform);
             g.drawImage(image, 0, 0, null);
