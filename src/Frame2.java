@@ -84,7 +84,7 @@ public class Frame2 extends DefaultFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            selectedImagePanelButton = mainPanelButton;
+                selectedImagePanelButton = mainPanelButton;
         }
     }
 
@@ -115,10 +115,12 @@ public class Frame2 extends DefaultFrame {
                     ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
                     // Replace the image in the main panel button with the scaled image
-                    selectedImagePanelButton.setIcon(scaledIcon);
+                    if (selectedImagePanelButton.getIcon() == null) {
+                        selectedImagePanelButton.setIcon(scaledIcon);
+                        // Set the icon of the clicked button in the image panel to null (remove the icon)
+                        imagePanelButton.setIcon(null);
+                    }
 
-                    // Set the icon of the clicked button in the image panel to null (remove the icon)
-                    imagePanelButton.setIcon(null);
                 } else {
                     // If it was blank, restore the initial image of the clicked button in the image panel
                     imagePanelButton.setIcon(initialImageIcons[buttonIndex]);
@@ -136,6 +138,7 @@ public class Frame2 extends DefaultFrame {
         // Assuming that the image path is stored as the action command of the button
         return button.getActionCommand();
     }
+
     private JButton createPanelButton(int number) {
         JButton button = new JButton();
         button.setBorderPainted(true);
@@ -159,7 +162,6 @@ public class Frame2 extends DefaultFrame {
 
         return button;
     }
-
 
     private JButton createRotatePanelButton(int number) {
         JButton button = new JButton(Integer.toString(number));
