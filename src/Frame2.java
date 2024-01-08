@@ -84,7 +84,7 @@ public class Frame2 extends DefaultFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            selectedImagePanelButton = mainPanelButton;
+                selectedImagePanelButton = mainPanelButton;
         }
     }
 
