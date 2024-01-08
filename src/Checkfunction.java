@@ -1,7 +1,6 @@
 import java.util.LinkedHashMap;
 
-public class Main
-{
+public class Checkfunction {
     public static void printSquaredMatrix(Card[][] matrix) 
     {
         int cardHeight = 5; // assume each card has a height of 5 rows
@@ -270,68 +269,5 @@ public class Main
             }
         }
         return true;
-    }
-    
-    public static void main(String[] args)
-    {        
-        Card_1 card_1 = new Card_1();
-        Card_2 card_2 = new Card_2();
-        Card_3 card_3 = new Card_3();
-        Card_4 card_4 = new Card_4();
-        Card_5 card_5 = new Card_5();
-        Card_6 card_6 = new Card_6();
-        Card_7 card_7 = new Card_7();
-        Card_8 card_8 = new Card_8();
-        Card_9 card_9 = new Card_9();
-        
-        
-//        // Test case 1, 2 :
-//        card_1.rotateRight();
-//        card_1.rotateRight();
-//        card_1.rotateRight();
-//
-//        card_2.rotateRight();
-//
-//        card_3.rotateRight();
-//        card_3.rotateRight();
-//        card_3.rotateRight();
-//
-//        card_4.rotateRight();
-//        card_4.rotateRight();
-//        card_4.rotateRight();
-//
-//        card_6.rotateRight();
-//
-//        card_7.rotateRight();
-//        card_7.rotateRight();
-//        card_7.rotateRight();
-//
-//        card_8.rotateRight();
-//
-//        // used for test case 1: true
-//        Card[][] board = {
-//            {card_1, card_6, card_5},
-//            {card_2, card_4, card_8},
-//            {card_7, card_9, card_3}
-//        };
-//
-//        // used for test case 2: true
-////        Card[][] board = {
-////            {card_1, card_6, card_5},
-////            {card_3, card_4, card_8},
-////            {card_7, card_9, card_2}
-////        };
-
-        // Test case 3: false
-        Card[][] board = {
-                {card_7, card_6, card_4},
-                {card_8, card_3, card_9},
-                {card_1, card_2, card_5}
-        };
-
-        printSquaredMatrix(board);
-        
-        boolean checkSolution = checkSolution(board);
-        System.out.println(checkSolution);
     }
 }
