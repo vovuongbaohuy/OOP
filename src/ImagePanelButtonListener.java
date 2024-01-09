@@ -61,7 +61,12 @@ public class ImagePanelButtonListener implements ActionListener {
             clickedButtonIndexes.add(buttonIndex);
         }
         buttonIndex = buttonIndex + 1;
-        System.out.println("Clicked Button Indexes: " + buttonIndex);
+        if (imagePanelButton.getIcon() == null) {
+            System.out.println("Puzzle " + buttonIndex + " is picked " );
+        }
+        else{
+            System.out.println("Puzzle " + buttonIndex + " is removed");
+        }
     }
 
     private String getImagePathFromButton(JButton button) {
