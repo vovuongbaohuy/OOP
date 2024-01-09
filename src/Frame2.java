@@ -115,10 +115,4 @@ public class Frame2 extends DefaultFrame {
 
         return button;
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new Frame2();
-        });
-    }
 }
