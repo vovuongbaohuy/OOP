@@ -115,4 +115,11 @@ public class Frame2 extends DefaultFrame {
 
         return button;
     }
+    public String getSelectedButtonName() {
+        if (selectedImagePanelButton != null) {
+            return selectedImagePanelButton.getName();
+        } else {
+            return null; // or handle the case when no button is selected
+        }
+    }
 }

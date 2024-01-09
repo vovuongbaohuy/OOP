@@ -62,10 +62,10 @@ public class ImagePanelButtonListener implements ActionListener {
         }
         buttonIndex = buttonIndex + 1;
         if (imagePanelButton.getIcon() == null) {
-            System.out.println("Puzzle " + buttonIndex + " is picked " );
+            System.out.println("Puzzle " + buttonIndex + " is place into square " + frame.getSelectedButtonName());
         }
         else{
-            System.out.println("Puzzle " + buttonIndex + " is removed");
+            System.out.println("Puzzle " + buttonIndex + " is removed from square " + frame.getSelectedButtonName());
         }
     }
 

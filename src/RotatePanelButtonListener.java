@@ -27,7 +27,6 @@ public class RotatePanelButtonListener implements ActionListener {
             }
         }
     }
-
     private void rotateButtonImage(JButton button) {
         // Get the icon from the button
         ImageIcon buttonIcon = (ImageIcon) button.getIcon();
