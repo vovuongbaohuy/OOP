@@ -31,22 +31,33 @@ public class ImagePanelButtonListener implements ActionListener {
 
     private void handleImagePanelButtonClick() {
         if (frame.getSelectedImagePanelButton() != null) {
+            // Get the icon from the clicked button in the image panel
             ImageIcon selectedImageIcon = (ImageIcon) imagePanelButton.getIcon();
 
             if (selectedImageIcon != null) {
+                // Get the file path of the image from the image panel button
                 String imagePath = getImagePathFromButton(imagePanelButton);
+
+                // Create an ImageIcon directly from the file path
                 ImageIcon originalImageIcon = new ImageIcon(imagePath);
+
+                // Scale the image to 150x150 pixels
                 Image scaledImage = originalImageIcon.getImage().getScaledInstance(150, 150, Image.SCALE_REPLICATE);
                 ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
+                // Replace the image in the main panel button with the scaled image
                 if (frame.getSelectedImagePanelButton().getIcon() == null) {
                     frame.getSelectedImagePanelButton().setIcon(scaledIcon);
+                    // Set the icon of the clicked button in the image panel to null (remove the icon)
                     imagePanelButton.setIcon(null);
                     updateClickedButtonIndexes(buttonIndex);
                 }
             } else {
                 if (frame.getSelectedImagePanelButton().getIcon() != null) {
+                    // If it was blank, restore the initial image of the clicked button in the image panel
                     imagePanelButton.setIcon(initialImageIcons[buttonIndex]);
+
+                    // Reset the icon of the clicked button in the main panel to blank
                     frame.getSelectedImagePanelButton().setIcon(null);
                     updateClickedButtonIndexes(buttonIndex);
                 }
