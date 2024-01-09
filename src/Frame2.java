@@ -17,6 +17,13 @@ public class Frame2 extends DefaultFrame {
         panel.setBounds(375, 100, 450, 450);
 
         // Create default layout for main panel buttons
+//        for (int x = 0; x < 9; x++) {
+//            JButton button = createPanelButton(x + 1);
+//            MainPanelButtonListener mainPanelButtonListener = new MainPanelButtonListener(button, this);
+//            button.addActionListener(mainPanelButtonListener);
+//            clickedButtonIndexes.add(x);
+//            panel.add(button);
+//        }
         for (int x = 0; x < 9; x++) {
             JButton button = createPanelButton(x + 1);
             MainPanelButtonListener mainPanelButtonListener = new MainPanelButtonListener(button, this);
@@ -82,7 +89,7 @@ public class Frame2 extends DefaultFrame {
         this.selectedImagePanelButton = selectedImagePanelButton;
     }
 
-    private JButton createPanelButton(int number) {
+    public JButton createPanelButton(int number) {
         JButton button = new JButton();
         button.setBorderPainted(true);
         button.setContentAreaFilled(false);
