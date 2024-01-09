@@ -1,9 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.geom.AffineTransform;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,23 +10,23 @@ public class Frame2 extends DefaultFrame {
     public Frame2() {
         super();
         super.getContentPane().setBackground(new Color(55, 159, 55));
-
+        List<Integer> clickedButtonIndexes = new ArrayList<>();
         // Create the main panel with GridLayout
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(3, 3));
         panel.setBounds(375, 100, 450, 450);
 
         // Create default layout for main panel buttons
-        for (int i = 0; i < 9; i++) {
-            JButton button = createPanelButton(i + 1);
-            button.addActionListener(new MainPanelButtonListener(button));
+        for (int x = 0; x < 9; x++) {
+            JButton button = createPanelButton(x + 1);
+            MainPanelButtonListener mainPanelButtonListener = new MainPanelButtonListener(button, this);
+            button.addActionListener(mainPanelButtonListener);
+            clickedButtonIndexes.add(x);
             panel.add(button);
         }
 
         // Add the main panel to the frame
-//        super.add(panel, BorderLayout.NORTH);
         super.add(panel);
-
 
         // Create the image panel with GridLayout
         JPanel imagepanel = new JPanel(new GridLayout(1, 9));
@@ -39,6 +35,8 @@ public class Frame2 extends DefaultFrame {
 
         // Create default layout for image panel buttons
         initialImageIcons = new ImageIcon[9];
+
+
         for (int i = 0; i < 9; i++) {
             ImageIcon img = new ImageIcon("images/" + (i + 1) + ".jpg");
             Image newImg = img.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
@@ -46,7 +44,8 @@ public class Frame2 extends DefaultFrame {
             initialImageIcons[i] = img;
 
             JButton button = createImagePanelButton("images/" + (i + 1) + ".jpg", i + 10);
-            button.addActionListener(new ImagePanelButtonListener(button, i));
+            ImagePanelButtonListener imagePanelButtonListener = new  ImagePanelButtonListener(button, i, getSelectedImagePanelButton(), initialImageIcons, clickedButtonIndexes, this);
+            button.addActionListener(imagePanelButtonListener);
             imagepanel.add(button);
         }
 
@@ -72,95 +71,14 @@ public class Frame2 extends DefaultFrame {
         super.add(submitButton);
         super.setLayout(null);
         super.setVisible(true);
-
-        // Repaint the frame
-        super.repaint();
     }
 
-    private class MainPanelButtonListener implements ActionListener {
-        private final JButton mainPanelButton;
-
-        public MainPanelButtonListener(JButton mainPanelButton) {
-            this.mainPanelButton = mainPanelButton;
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            selectedImagePanelButton = mainPanelButton;
-        }
+    public JButton getSelectedImagePanelButton() {
+        return selectedImagePanelButton;
     }
 
-    public class ImagePanelButtonListener implements ActionListener {
-        private final JButton imagePanelButton;
-        private final int buttonIndex;
-
-        // Array to store clicked button indexes (instance variable)
-        private List<Integer> clickedButtonIndexes = new ArrayList<>();
-
-        public ImagePanelButtonListener(JButton imagePanelButton, int buttonIndex) {
-            this.imagePanelButton = imagePanelButton;
-            this.buttonIndex = buttonIndex;
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            if (selectedImagePanelButton != null) {
-                // Get the icon from the clicked button in the image panel
-                ImageIcon selectedImageIcon = (ImageIcon) imagePanelButton.getIcon();
-
-                if (selectedImageIcon != null) {
-                    // Get the file path of the image from the image panel button
-                    String imagePath = getImagePathFromButton(imagePanelButton);
-
-                    // Create an ImageIcon directly from the file path
-                    ImageIcon originalImageIcon = new ImageIcon(imagePath);
-
-                    // Scale the image to 200x200 pixels
-                    Image scaledImage = originalImageIcon.getImage().getScaledInstance(150, 150, Image.SCALE_REPLICATE);
-                    ImageIcon scaledIcon = new ImageIcon(scaledImage);
-
-                    // Replace the image in the main panel button with the scaled image
-                    if (selectedImagePanelButton.getIcon() == null) {
-                        selectedImagePanelButton.setIcon(scaledIcon);
-                        // Set the icon of the clicked button in the image panel to null (remove the icon)
-                        imagePanelButton.setIcon(null);
-
-                        // Update the array with the clicked button index
-                        updateClickedButtonIndexes(buttonIndex);
-                    }
-
-                } else {
-                    if (selectedImagePanelButton.getIcon() != null) {
-                        // If it was blank, restore the initial image of the clicked button in the image panel
-                        imagePanelButton.setIcon(initialImageIcons[buttonIndex]);
-
-                        // Reset the icon of the clicked button in the main panel to blank
-                        selectedImagePanelButton.setIcon(null);
-
-                        // Update the array with the clicked button index
-                        updateClickedButtonIndexes(buttonIndex);
-                    }
-                }
-
-                selectedImagePanelButton = null;
-            }
-        }
-
-        // Method to update the array with the clicked button index
-        private void updateClickedButtonIndexes(int buttonIndex) {
-            if (!clickedButtonIndexes.contains(buttonIndex)) {
-                clickedButtonIndexes.add(buttonIndex);
-            }
-
-            // Print the array for demonstration purposes
-            System.out.println("Clicked Button Indexes: " + clickedButtonIndexes);
-        }
-    }
-
-
-    private String getImagePathFromButton(JButton button) {
-        // Assuming that the image path is stored as the action command of the button
-        return button.getActionCommand();
+    public void setSelectedImagePanelButton(JButton selectedImagePanelButton) {
+        this.selectedImagePanelButton = selectedImagePanelButton;
     }
 
     private JButton createPanelButton(int number) {
@@ -171,6 +89,7 @@ public class Frame2 extends DefaultFrame {
         button.setName(Integer.toString(number));
         return button;
     }
+
     private JButton createImagePanelButton(String imagePath, int number) {
         ImageIcon img = new ImageIcon(imagePath);
         Image newImg = img.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
@@ -197,5 +116,9 @@ public class Frame2 extends DefaultFrame {
         return button;
     }
 
-
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new Frame2();
+        });
+    }
 }
