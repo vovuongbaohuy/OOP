@@ -12,6 +12,7 @@ public class ImagePanelButtonListener implements ActionListener {
     private final ImageIcon[] initialImageIcons;
     private final List<Integer> clickedButtonIndexes;
     private final Frame2 frame;
+    public Card[][] board = new Card[3][3];
 
     public ImagePanelButtonListener(JButton imagePanelButton, int buttonIndex,
                                     JButton selectedImagePanelButton, ImageIcon[] initialImageIcons,
@@ -29,7 +30,7 @@ public class ImagePanelButtonListener implements ActionListener {
         handleImagePanelButtonClick();
     }
 
-    private void handleImagePanelButtonClick() {
+    public Card[][] handleImagePanelButtonClick() {
         if (frame.getSelectedImagePanelButton() != null) {
             // Get the icon from the clicked button in the image panel
             ImageIcon selectedImageIcon = (ImageIcon) imagePanelButton.getIcon();
@@ -50,6 +51,42 @@ public class ImagePanelButtonListener implements ActionListener {
                     frame.getSelectedImagePanelButton().setIcon(scaledIcon);
                     // Set the icon of the clicked button in the image panel to null (remove the icon)
                     imagePanelButton.setIcon(null);
+//                    if(buttonIndex == 1){
+//                        Card_1 card1 = null;
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = card1;
+//                    }
+//                    else if (buttonIndex == 2) {
+//                        Card_2 card2 = null;
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = card2;
+//                    }
+//                    else if (buttonIndex == 3) {
+//                        Card_3 card3 = null;
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = card3;
+//                    }
+//                    else if (buttonIndex == 4) {
+//                        Card_4 card4 = null;
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = card4;
+//                    }
+//                    else if (buttonIndex == 5) {
+//                        Card_5 card5 = null;
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = card5;
+//                    }
+//                    else if (buttonIndex == 6) {
+//                        Card_6 card6 = null;
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = card6;
+//                    }
+//                    else if (buttonIndex == 7) {
+//                        Card_7 card7 = null;
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = card7;
+//                    }
+//                    else if (buttonIndex == 8) {
+//                        Card_8 card8 = null;
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = card8;
+//                    }
+//                    else if (buttonIndex == 9) {
+//                        Card_9 card9 = null;
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = card9;
+//                    }
                     updateClickedButtonIndexes(buttonIndex);
                 }
             } else {
@@ -59,12 +96,40 @@ public class ImagePanelButtonListener implements ActionListener {
 
                     // Reset the icon of the clicked button in the main panel to blank
                     frame.getSelectedImagePanelButton().setIcon(null);
+//                    if (buttonIndex == 1){
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = null;
+//                    }
+//                    else if (buttonIndex == 2) {
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = null;
+//                    }
+//                    else if (buttonIndex == 3) {
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = null;
+//                    }
+//                    else if (buttonIndex == 4) {
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = null;
+//                    }
+//                    else if (buttonIndex == 5) {
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = null;
+//                    }
+//                    else if (buttonIndex == 6) {
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = null;
+//                    }
+//                    else if (buttonIndex == 7) {
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = null;
+//                    }
+//                    else if (buttonIndex == 8) {
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = null;
+//                    }
+//                    else if (buttonIndex == 9) {
+//                        board[buttonIndex - 1][Integer.parseInt(frame.getSelectedButtonName())] = null;
+//                    }
                     updateClickedButtonIndexes(buttonIndex);
                 }
             }
 
             frame.setSelectedImagePanelButton(null);
         }
+        return board;
     }
 
     private void updateClickedButtonIndexes(int buttonIndex) {

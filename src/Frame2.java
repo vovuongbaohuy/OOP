@@ -66,6 +66,7 @@ public class Frame2 extends DefaultFrame {
         // Create a new button
         JButton submitButton = new JButton("Submit!");
         submitButton.setBackground(Color.white);
+//        submitButton.addActionListener(new SubmitButtonListener(this));
         submitButton.setBounds(400, 600, 400, 50);
 
         super.add(submitButton);
@@ -87,6 +88,9 @@ public class Frame2 extends DefaultFrame {
         button.setContentAreaFilled(false);
         button.setPreferredSize(new Dimension(200, 200));
         button.setName(Integer.toString(number));
+        button.addMouseListener(new HoverEffectMouseListener(button));
+        button.setContentAreaFilled(true);
+//        button.setBorder(BorderFactory.createEmptyBorder());
         return button;
     }
 
@@ -106,7 +110,6 @@ public class Frame2 extends DefaultFrame {
 
         return button;
     }
-
     private JButton createRotatePanelButton(int number) {
         JButton button = new JButton(Integer.toString(number));
         button.setBorderPainted(true);
