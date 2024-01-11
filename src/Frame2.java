@@ -43,15 +43,16 @@ public class Frame2 extends DefaultFrame {
         // Create default layout for image panel buttons
         initialImageIcons = new ImageIcon[9];
 
-
+        int[] imagePanelButtonIndex = new int[9];
         for (int i = 0; i < 9; i++) {
             ImageIcon img = new ImageIcon("images/" + (i + 1) + ".jpg");
             Image newImg = img.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
             img = new ImageIcon(newImg);
             initialImageIcons[i] = img;
 
+            imagePanelButtonIndex[i] = i;
             JButton button = createImagePanelButton("images/" + (i + 1) + ".jpg", i + 10);
-            ImagePanelButtonListener imagePanelButtonListener = new  ImagePanelButtonListener(button, i, getSelectedImagePanelButton(), initialImageIcons, clickedButtonIndexes, this);
+            ImagePanelButtonListener imagePanelButtonListener = new  ImagePanelButtonListener(button, imagePanelButtonIndex[i], getSelectedImagePanelButton(), initialImageIcons, clickedButtonIndexes, this);
             button.addActionListener(imagePanelButtonListener);
             imagepanel.add(button);
         }
@@ -65,7 +66,7 @@ public class Frame2 extends DefaultFrame {
         rotatepanel.setBackground(new Color(20, 200, 20));
         for (int i = 0; i < 9; i++) {
             JButton button = createRotatePanelButton(i + 1);
-            button.addActionListener(new RotatePanelButtonListener(i + 1, panel));
+            button.addActionListener(new RotatePanelButtonListener(i + 1, panel, imagePanelButtonIndex[i]));
             rotatepanel.add(button);
         }
         super.add(rotatepanel);
