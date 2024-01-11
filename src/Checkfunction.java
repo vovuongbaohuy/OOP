@@ -1,33 +1,35 @@
 import java.util.LinkedHashMap;
 
 public class Checkfunction {
-    public static void printSquaredMatrix(Card[][] matrix) 
-    {
+    public void printSquaredMatrix(Card[][] matrix) {
         int cardHeight = 5; // assume each card has a height of 5 rows
         int cardWidth = 7; // assume each card has a width of 7 columns
 
-        for (int row = 0; row < matrix.length; row++)
-        {
+        for (int row = 0; row < matrix.length; row++) {
             for (int i = 0; i < cardHeight; i++) {
                 for (int col = 0; col < matrix[row].length; col++) {
                     Card card = matrix[row][col];
-                    LinkedHashMap<String, Character> cardData = card.card;
 
-                    if (i == 0) {
-                        System.out.print(card.getCardName() + "------- ");
-                    } 
-                    else if (i == 1) {
-                        System.out.print("|   " + cardData.get("top") + "   | ");
-                    } 
-                    else if (i == 2) {
-                        System.out.print("| " + cardData.get("left") + "   " + cardData.get("right") + " | ");
-                    } 
-                    else if (i == 3) {
-                        System.out.print("|   " + cardData.get("bottom") + "   | ");
+                    // Add null check for card
+                    if (card != null) {
+                        LinkedHashMap<String, Character> cardData = card.card;
+
+                        if (i == 0) {
+                            System.out.print(card.getCardName() + "------- ");
+                        } else if (i == 1) {
+                            System.out.print("|   " + cardData.get("top") + "   | ");
+                        } else if (i == 2) {
+                            System.out.print("| " + cardData.get("left") + "   " + cardData.get("right") + " | ");
+                        } else if (i == 3) {
+                            System.out.print("|   " + cardData.get("bottom") + "   | ");
+                        }
+                    } else {
+                        // Handle the case where card is null (print an empty space or handle accordingly)
+                        System.out.print("         ");
                     }
                 }
-                
-                if(i != 4) {
+
+                if (i != cardHeight - 1) {
                     System.out.println();
                 }
             }
@@ -39,7 +41,8 @@ public class Checkfunction {
             System.out.println();
         }
     }
-       
+
+
     public static boolean checkSolution(Card[][] matrix)
     {
         boolean[][] checkMatrix = new boolean[matrix.length][matrix[0].length];

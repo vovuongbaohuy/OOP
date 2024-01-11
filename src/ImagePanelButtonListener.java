@@ -7,22 +7,18 @@ import java.util.List;
 
 public class ImagePanelButtonListener implements ActionListener {
     private final JButton imagePanelButton;
-    private final int buttonIndex;
-    private final JButton selectedImagePanelButton;
+    private final int imagePanelButtonIndex;
     private final ImageIcon[] initialImageIcons;
-    private final List<Integer> clickedButtonIndexes;
-    private final Frame2 frame;
+    private final Frame2 frame2;
     public Card[][] board = new Card[3][3];
 
-    public ImagePanelButtonListener(JButton imagePanelButton, int buttonIndex,
+    public ImagePanelButtonListener(JButton imagePanelButton, int imagePanelButtonIndex,
                                     JButton selectedImagePanelButton, ImageIcon[] initialImageIcons,
-                                    List<Integer> clickedButtonIndexes, Frame2 frame) {
+                                    List<Integer> clickedButtonIndexes, Frame2 frame2) {
         this.imagePanelButton = imagePanelButton;
-        this.buttonIndex = buttonIndex;
-        this.selectedImagePanelButton = selectedImagePanelButton;
+        this.imagePanelButtonIndex = imagePanelButtonIndex;
         this.initialImageIcons = initialImageIcons;
-        this.clickedButtonIndexes = clickedButtonIndexes;
-        this.frame = frame;
+        this.frame2 = frame2;
     }
 
     @Override
@@ -30,8 +26,8 @@ public class ImagePanelButtonListener implements ActionListener {
         handleImagePanelButtonClick();
     }
 
-    public Card[][] handleImagePanelButtonClick() {
-        if (frame.getSelectedImagePanelButton() != null) {
+    public void handleImagePanelButtonClick() {
+        if (frame2.getSelectedImagePanelButton() != null) {
             // Get the icon from the clicked button in the image panel
             ImageIcon selectedImageIcon = (ImageIcon) imagePanelButton.getIcon();
 
@@ -47,264 +43,186 @@ public class ImagePanelButtonListener implements ActionListener {
                 ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
                 // Replace the image in the main panel button with the scaled image
-                if (frame.getSelectedImagePanelButton().getIcon() == null) {
-                    frame.getSelectedImagePanelButton().setIcon(scaledIcon);
+                if (frame2.getSelectedImagePanelButton().getIcon() == null) {
+                    frame2.getSelectedImagePanelButton().setIcon(scaledIcon);
                     // Set the icon of the clicked button in the image panel to null (remove the icon)
                     imagePanelButton.setIcon(null);
 //                    updateClickedButtonIndexes(buttonIndex);
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 1){
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 1){
                         int row = 0;
                         int column = 0;
                         Card_1 card_1 = new Card_1();
-                        board[row][column] = card_1;
-                        int cardnumber = buttonIndex + 1;
+                        frame2.board[row][column] = card_1;
+                        int cardnumber = imagePanelButtonIndex + 1;
+                        System.out.println(frame2.mainPanelButtonIndex[0] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
                         System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
-
+                        System.out.println();
                     }
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 2){
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 2){
                         int row = 0;
                         int column = 1;
                         Card_2 card_2 = new Card_2();
-                        board[row][column] = card_2;
-                        int cardnumber = buttonIndex + 1;
+                        frame2.board[row][column] = card_2;
+                        int cardnumber = imagePanelButtonIndex + 1;
+                        System.out.println(frame2.mainPanelButtonIndex[1] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
                         System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println();
                     }
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 3){
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 3){
                         int row = 0;
                         int column = 1;
                         Card_3 card_3 = new Card_3();
-                        board[row][column] = card_3;
-                        int cardnumber = buttonIndex + 1;
+                        frame2.board[row][column] = card_3;
+                        int cardnumber = imagePanelButtonIndex + 1;
+                        System.out.println(frame2.mainPanelButtonIndex[2] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
                         System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println();
                     }
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 4){
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 4){
                         int row = 1;
                         int column = 0;
                         Card_4 card_4 = new Card_4();
-                        board[row][column] = card_4;
-                        int cardnumber = buttonIndex + 1;
+                        frame2.board[row][column] = card_4;
+                        int cardnumber = imagePanelButtonIndex + 1;
+                        System.out.println(frame2.mainPanelButtonIndex[3] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
                         System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println();
                     }
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 5){
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 5){
                         int row = 1;
                         int column = 1;
                         Card_5 card_5 = new Card_5();
-                        board[row][column] = card_5;
-                        int cardnumber = buttonIndex + 1;
+                        frame2.board[row][column] = card_5;
+                        int cardnumber = imagePanelButtonIndex + 1;
+                        System.out.println(frame2.mainPanelButtonIndex[4] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
                         System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println();
                     }
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 6){
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 6){
                         int row = 1;
                         int column = 2;
                         Card_6 card_6 = new Card_6();
-                        board[row][column] = card_6;
-                        int cardnumber = buttonIndex + 1;
+                        frame2.board[row][column] = card_6;
+                        int cardnumber = imagePanelButtonIndex + 1;
+                        System.out.println(frame2.mainPanelButtonIndex[5] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
                         System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println();
                     }
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 7){
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 7){
                         int row = 2;
                         int column = 0;
                         Card_7 card_7 = new Card_7();
-                        board[row][column] = card_7;
-                        int cardnumber = buttonIndex + 1;
+                        frame2.board[row][column] = card_7;
+                        int cardnumber = imagePanelButtonIndex + 1;
+                        System.out.println(frame2.mainPanelButtonIndex[6] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
                         System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println();
                     }
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 8){
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 8){
                         int row = 2;
                         int column = 1;
                         Card_8 card_8 = new Card_8();
-                        board[row][column] = card_8;
-                        int cardnumber = buttonIndex + 1;
+                        frame2.board[row][column] = card_8;
+                        int cardnumber = imagePanelButtonIndex + 1;
+                        System.out.println(frame2.mainPanelButtonIndex[7] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
                         System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println();
                     }
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 9){
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 9){
                         int row = 2;
                         int column = 2;
                         Card_9 card_9 = new Card_9();
-                        board[row][column] = card_9;
-                        int cardnumber = buttonIndex + 1;
+                        frame2.board[row][column] = card_9;
+                        int cardnumber = imagePanelButtonIndex + 1;
+                        System.out.println(frame2.mainPanelButtonIndex[8] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
                         System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println();
                     }
                 }
             } else {
-                if (frame.getSelectedImagePanelButton().getIcon() != null) {
+                if (frame2.getSelectedImagePanelButton().getIcon() != null) {
                     // If it was blank, restore the initial image of the clicked button in the image panel
-                    imagePanelButton.setIcon(initialImageIcons[buttonIndex]);
-
+                    imagePanelButton.setIcon(initialImageIcons[imagePanelButtonIndex]);
                     // Reset the icon of the clicked button in the main panel to blank
-                    frame.getSelectedImagePanelButton().setIcon(null);
-//                    updateClickedButtonIndexes(buttonIndex);
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 1){
+                    frame2.getSelectedImagePanelButton().setIcon(null);
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 1){
                         int row = 0;
                         int column = 0;
-                        board[row][column] = null;
-                        int cardnumber = buttonIndex;
+                        frame2.board[row][column] = null;
+                        int cardnumber = imagePanelButtonIndex + 1;
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println();
                     }
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 2){
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 2){
                         int row = 0;
                         int column = 1;
-                        board[row][column] = null;
-                        int cardnumber = buttonIndex + 1;
+                        frame2.board[row][column] = null;
+                        int cardnumber = imagePanelButtonIndex + 1;
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println();
                     }
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 3){
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 3){
                         int row = 0;
                         int column = 1;
-                        board[row][column] = null;
-                        int cardnumber = buttonIndex + 1;
+                        frame2.board[row][column] = null;
+                        int cardnumber = imagePanelButtonIndex + 1;
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println();
                     }
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 4){
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 4){
                         int row = 1;
                         int column = 0;
-                        board[row][column] = null;
-                        int cardnumber = buttonIndex + 1;
+                        frame2.board[row][column] = null;
+                        int cardnumber = imagePanelButtonIndex + 1;
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println();
                     }
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 5){
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 5){
                         int row = 1;
                         int column = 1;
-                        board[row][column] = null;
-                        int cardnumber = buttonIndex + 1;
+                        frame2.board[row][column] = null;
+                        int cardnumber = imagePanelButtonIndex + 1;
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println();
                     }
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 6){
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 6){
                         int row = 1;
                         int column = 2;
-                        board[row][column] = null;
-                        int cardnumber = buttonIndex + 1;
+                        frame2.board[row][column] = null;
+                        int cardnumber = imagePanelButtonIndex + 1;
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println();
                     }
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 7){
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 7){
                         int row = 2;
                         int column = 0;
-                        board[row][column] = null;
-                        int cardnumber = buttonIndex + 1;
+                        frame2.board[row][column] = null;
+                        int cardnumber = imagePanelButtonIndex + 1;
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println();
                     }
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 8){
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 8){
                         int row = 2;
                         int column = 1;
-                        board[row][column] = null;
-                        int cardnumber = buttonIndex + 1;
+                        frame2.board[row][column] = null;
+                        int cardnumber = imagePanelButtonIndex + 1;
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println();
                     }
-                    if (Integer.parseInt(frame.getSelectedButtonName()) == 9){
+                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 9){
                         int row = 2;
                         int column = 2;
-                        board[row][column] = null;
-                        int cardnumber = buttonIndex + 1;
+                        frame2.board[row][column] = null;
+                        int cardnumber = imagePanelButtonIndex + 1;
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println();
                     }
                 }
             }
-
-            frame.setSelectedImagePanelButton(null);
+            frame2.setSelectedImagePanelButton(null);
         }
-        return board;
-    }
 
-//    private void updateClickedButtonIndexes(int buttonIndex) {
-//        if (!clickedButtonIndexes.contains(buttonIndex)) {
-//            clickedButtonIndexes.add(buttonIndex);
-//        }
-//        int cardnumber = buttonIndex + 1;
-//        if (imagePanelButton.getIcon() == null) {
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 1){
-//                int row = 0;
-//                int column = 0;
-//                System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 2){
-//                int row = 0;
-//                int column = 1;
-//                System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 3){
-//                int row = 0;
-//                int column = 2;
-//                System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 4){
-//                int row = 1;
-//                int column = 0;
-//                System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 5){
-//                int row = 1;
-//                int column = 1;
-//                System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 6){
-//                int row = 1;
-//                int column = 2;
-//                System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 7){
-//                int row = 2;
-//                int column = 0;
-//                System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 8){
-//                int row = 2;
-//                int column = 1;
-//                System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 9){
-//                int row = 2;
-//                int column = 2;
-//                System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//        }
-//        else{
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 1){
-//                int row = 0;
-//                int column = 0;
-//                System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 2){
-//                int row = 0;
-//                int column = 1;
-//                System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 3){
-//                int row = 0;
-//                int column = 2;
-//                System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 4){
-//                int row = 1;
-//                int column = 0;
-//                System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 5){
-//                int row = 1;
-//                int column = 1;
-//                System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 6){
-//                int row = 1;
-//                int column = 2;
-//                System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 7){
-//                int row = 2;
-//                int column = 0;
-//                System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 8){
-//                int row = 2;
-//                int column = 1;
-//                System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//            if (Integer.parseInt(frame.getSelectedButtonName()) == 9){
-//                int row = 2;
-//                int column = 2;
-//                System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
-//            }
-//        }
-//    }
+    }
 
     private String getImagePathFromButton(JButton button) {
         // Assuming that the image path is stored as the action command of the button

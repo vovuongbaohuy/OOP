@@ -1,32 +1,44 @@
-import java.awt.Color;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-
 public class SubmitButtonListener implements ActionListener {
-    private JFrame frame;
+    private final Frame2 frame2;
 
-    public SubmitButtonListener(JFrame frame) {
-        this.frame = frame;
+    public SubmitButtonListener(Frame2 frame2) {
+        this.frame2 = frame2;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Display confirmation dialog
-        int result = JOptionPane.showConfirmDialog(frame, "Do you want to submit?", "Confirmation",
-                JOptionPane.YES_NO_OPTION);
-        if (result == JOptionPane.YES_OPTION) {
-            // Implement the algorithm to detect the answer here
-            // You can add your logic to handle the "Yes" option
-            System.out.println("Submit button clicked. Starting algorithm...");
+        if (checkAllIconsNull()) {
+            // Ask for confirmation
+            int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to submit?", "Confirmation", JOptionPane.YES_NO_OPTION);
+
+            if (result == JOptionPane.YES_OPTION) {
+                // User clicked "Yes", perform your desired action (e.g., call a check function)
+                Checkfunction checkfunction = new Checkfunction();
+                checkfunction.printSquaredMatrix(frame2.board);
+
+                boolean checkSolution = Checkfunction.checkSolution(frame2.board);
+                System.out.println(checkSolution);
+            }
         } else {
-            // User clicked "No" - do nothing or handle accordingly
-            System.out.println("Submit button clicked. User chose not to submit.");
+            // Handle the case where not all icons are null if needed
+            JOptionPane.showMessageDialog(null, "Please set all images before submitting.");
         }
+    }
+
+    private boolean checkAllIconsNull() {
+        for (Component component : frame2.imagePanel.getComponents()) {
+            if (component instanceof JButton) {
+                JButton button = (JButton) component;
+                if (button.getIcon() != null) {
+                    return false; // At least one icon is not null
+                }
+            }
+        }
+        return true; // All icons are null
     }
 }

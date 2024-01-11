@@ -16,9 +16,9 @@ public class Main {
 //        Card_7 card_7 = new Card_7();
 //        Card_8 card_8 = new Card_8();
 //        Card_9 card_9 = new Card_9();
-
-
-//        // Test case 1, 2 :
+//
+//
+////        // Test case 1, 2 :
 //        card_1.rotateRight();
 //        card_1.rotateRight();
 //        card_1.rotateRight();
@@ -40,7 +40,7 @@ public class Main {
 //        card_7.rotateRight();
 //
 //        card_8.rotateRight();
-//
+
 //        // used for test case 1: true
 //        Card[][] board = {
 //            {card_1, card_6, card_5},

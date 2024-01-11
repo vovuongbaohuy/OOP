@@ -6,15 +6,53 @@ import java.util.List;
 public class Frame2 extends DefaultFrame {
     private JButton selectedImagePanelButton;
     private ImageIcon[] initialImageIcons;
+    public JPanel mainPanel = new JPanel();
+    public JPanel imagePanel = new JPanel();
+
+    public Card[][] getBoard() {
+        return board;
+    }
+
+    public void setBoard(Card[][] board) {
+        this.board = board;
+    }
+
+    public Card[][] board   = new Card[3][3];
+
+    public int[] getMainPanelButtonIndex() {
+        return mainPanelButtonIndex;
+    }
+
+    public void setMainPanelButtonIndex(int[] mainPanelButtonIndex) {
+        this.mainPanelButtonIndex = mainPanelButtonIndex;
+    }
+
+    public int[] mainPanelButtonIndex = new int[9];
+
+    public int[] getImagePanelButtonIndex() {
+        return imagePanelButtonIndex;
+    }
+
+    public void setImagePanelButtonIndex(int[] imagePanelButtonIndex) {
+        this.imagePanelButtonIndex = imagePanelButtonIndex;
+    }
+
+    public int[] imagePanelButtonIndex = new int[9];
 
     public Frame2() {
         super();
         super.getContentPane().setBackground(new Color(55, 159, 55));
         List<Integer> clickedButtonIndexes = new ArrayList<>();
+        // Initializing card board
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                board[i][j] = new Card();
+            }
+        }
         // Create the main panel with GridLayout
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3, 3));
-        panel.setBounds(375, 100, 450, 450);
+
+        mainPanel.setLayout(new GridLayout(3, 3));
+        mainPanel.setBounds(375, 100, 450, 450);
 
         // Create default layout for main panel buttons
 //        for (int x = 0; x < 9; x++) {
@@ -24,26 +62,27 @@ public class Frame2 extends DefaultFrame {
 //            clickedButtonIndexes.add(x);
 //            panel.add(button);
 //        }
+//        int[] mainPanelButtonIndex = new int[9]; // indexes for mainPanelButtons
         for (int x = 0; x < 9; x++) {
+            mainPanelButtonIndex[x] = x ;
             JButton button = createPanelButton(x + 1);
             MainPanelButtonListener mainPanelButtonListener = new MainPanelButtonListener(button, this);
             button.addActionListener(mainPanelButtonListener);
             clickedButtonIndexes.add(x);
-            panel.add(button);
+            mainPanel.add(button);
         }
 
         // Add the main panel to the frame
-        super.add(panel);
+        super.add(mainPanel);
 
         // Create the image panel with GridLayout
-        JPanel imagepanel = new JPanel(new GridLayout(1, 9));
-        imagepanel.setBounds(150, 650, 900, 100);
-        imagepanel.setBackground(new Color(20, 87, 20));
+        imagePanel.setLayout(new GridLayout(1, 9));
+        imagePanel.setBounds(150, 650, 900, 100);
+        imagePanel.setBackground(new Color(20, 87, 20));
 
         // Create default layout for image panel buttons
         initialImageIcons = new ImageIcon[9];
 
-        int[] imagePanelButtonIndex = new int[9];
         for (int i = 0; i < 9; i++) {
             ImageIcon img = new ImageIcon("images/" + (i + 1) + ".jpg");
             Image newImg = img.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
@@ -54,11 +93,11 @@ public class Frame2 extends DefaultFrame {
             JButton button = createImagePanelButton("images/" + (i + 1) + ".jpg", i + 10);
             ImagePanelButtonListener imagePanelButtonListener = new  ImagePanelButtonListener(button, imagePanelButtonIndex[i], getSelectedImagePanelButton(), initialImageIcons, clickedButtonIndexes, this);
             button.addActionListener(imagePanelButtonListener);
-            imagepanel.add(button);
+            imagePanel.add(button);
         }
 
         // Add the image panel to the frame
-        super.add(imagepanel);
+        super.add(imagePanel);
 
         // rotate panel
         JPanel rotatepanel = new JPanel(new GridLayout(3, 3));
@@ -66,7 +105,7 @@ public class Frame2 extends DefaultFrame {
         rotatepanel.setBackground(new Color(20, 200, 20));
         for (int i = 0; i < 9; i++) {
             JButton button = createRotatePanelButton(i + 1);
-            button.addActionListener(new RotatePanelButtonListener(i + 1, panel, imagePanelButtonIndex[i]));
+            button.addActionListener(new RotatePanelButtonListener(i + 1, mainPanel, this));
             rotatepanel.add(button);
         }
         super.add(rotatepanel);
@@ -74,7 +113,7 @@ public class Frame2 extends DefaultFrame {
         // Create a new button
         JButton submitButton = new JButton("Submit!");
         submitButton.setBackground(Color.white);
-//        submitButton.addActionListener(new SubmitButtonListener(this));
+        submitButton.addActionListener(new SubmitButtonListener(this));
         submitButton.setBounds(400, 600, 400, 50);
 
         super.add(submitButton);
@@ -133,4 +172,5 @@ public class Frame2 extends DefaultFrame {
             return null; // or handle the case when no button is selected
         }
     }
+
 }
