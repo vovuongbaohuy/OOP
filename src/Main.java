@@ -32,13 +32,10 @@ public class Main {
 //        card_4.rotateRight();
 //        card_4.rotateRight();
 //        card_4.rotateRight();
-//
 //        card_6.rotateRight();
-//
 //        card_7.rotateRight();
 //        card_7.rotateRight();
 //        card_7.rotateRight();
-//
 //        card_8.rotateRight();
 
 //        // used for test case 1: true
