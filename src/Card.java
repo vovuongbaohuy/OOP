@@ -1,10 +1,11 @@
 import java.util.LinkedHashMap;
+import java.util.Objects;
 
 public class Card
 {
     protected LinkedHashMap<String, Character> card;
     protected String cardName;
-    
+    public Frame2 frame2;
     public Card()
     {
         this.card = new LinkedHashMap<>();
@@ -40,4 +41,5 @@ public class Card
     {
         return this.card.get("right");
     }
+
 }
