@@ -47,7 +47,7 @@ public class ImagePanelButtonListener implements ActionListener {
                     frame2.getSelectedImagePanelButton().setIcon(scaledIcon);
                     // Set the icon of the clicked button in the image panel to null (remove the icon)
                     imagePanelButton.setIcon(null);
-//                    updateClickedButtonIndexes(buttonIndex);
+                    // updateClickedButtonIndexes(buttonIndex);
                     if (Integer.parseInt(frame2.getSelectedButtonName()) == 1){
                         int row = 0;
                         int column = 0;
@@ -56,43 +56,43 @@ public class ImagePanelButtonListener implements ActionListener {
                             Card_1 card_1 = new Card_1();
                             frame2.board[row][column] = card_1;
                         }
-                        if(cardnumber == 2){
+                        else if(cardnumber == 2){
                             Card_2 card_2 = new Card_2();
                             frame2.board[row][column] = card_2;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             Card_3 card_3 = new Card_3();
                             frame2.board[row][column] = card_3;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             Card_4 card_4 = new Card_4();
                             frame2.board[row][column] = card_4;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             Card_5 card_5 = new Card_5();
                             frame2.board[row][column] = card_5;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             Card_6 card_6 = new Card_6();
                             frame2.board[row][column] = card_6;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             Card_7 card_7 = new Card_7();
                             frame2.board[row][column] = card_7;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             Card_8 card_8 = new Card_8();
                             frame2.board[row][column] = card_8;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             Card_9 card_9 = new Card_9();
                             frame2.board[row][column] = card_9;
                         }
                         System.out.println(frame2.mainPanelButtonIndex[0] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
-                        System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println("Puzzle " + cardnumber + " is placed into square " + "[" + row + "]" + "[" + column + "]");
                         System.out.println();
                     }
-                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 2){
+                    else if (Integer.parseInt(frame2.getSelectedButtonName()) == 2) {
                         int row = 0;
                         int column = 1;
                         int cardnumber = imagePanelButtonIndex + 1;
@@ -100,43 +100,43 @@ public class ImagePanelButtonListener implements ActionListener {
                             Card_1 card_1 = new Card_1();
                             frame2.board[row][column] = card_1;
                         }
-                        if(cardnumber == 2){
+                        else if(cardnumber == 2){
                             Card_2 card_2 = new Card_2();
                             frame2.board[row][column] = card_2;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             Card_3 card_3 = new Card_3();
                             frame2.board[row][column] = card_3;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             Card_4 card_4 = new Card_4();
                             frame2.board[row][column] = card_4;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             Card_5 card_5 = new Card_5();
                             frame2.board[row][column] = card_5;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             Card_6 card_6 = new Card_6();
                             frame2.board[row][column] = card_6;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             Card_7 card_7 = new Card_7();
                             frame2.board[row][column] = card_7;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             Card_8 card_8 = new Card_8();
                             frame2.board[row][column] = card_8;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             Card_9 card_9 = new Card_9();
                             frame2.board[row][column] = card_9;
                         }
                         System.out.println(frame2.mainPanelButtonIndex[1] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
-                        System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println("Puzzle " + cardnumber + " is placed into square " + "[" + row + "]" + "[" + column + "]");
                         System.out.println();
                     }
-                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 3){
+                    else if (Integer.parseInt(frame2.getSelectedButtonName()) == 3){
                         int row = 0;
                         int column = 2;
                         int cardnumber = imagePanelButtonIndex + 1;
@@ -144,43 +144,43 @@ public class ImagePanelButtonListener implements ActionListener {
                             Card_1 card_1 = new Card_1();
                             frame2.board[row][column] = card_1;
                         }
-                        if(cardnumber == 2){
+                        else if(cardnumber == 2){
                             Card_2 card_2 = new Card_2();
                             frame2.board[row][column] = card_2;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             Card_3 card_3 = new Card_3();
                             frame2.board[row][column] = card_3;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             Card_4 card_4 = new Card_4();
                             frame2.board[row][column] = card_4;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             Card_5 card_5 = new Card_5();
                             frame2.board[row][column] = card_5;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             Card_6 card_6 = new Card_6();
                             frame2.board[row][column] = card_6;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             Card_7 card_7 = new Card_7();
                             frame2.board[row][column] = card_7;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             Card_8 card_8 = new Card_8();
                             frame2.board[row][column] = card_8;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             Card_9 card_9 = new Card_9();
                             frame2.board[row][column] = card_9;
                         }
                         System.out.println(frame2.mainPanelButtonIndex[2] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
-                        System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println("Puzzle " + cardnumber + " is placed into square " + "[" + row + "]" + "[" + column + "]");
                         System.out.println();
                     }
-                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 4){
+                    else if (Integer.parseInt(frame2.getSelectedButtonName()) == 4){
                         int row = 1;
                         int column = 0;
                         int cardnumber = imagePanelButtonIndex + 1;
@@ -188,43 +188,43 @@ public class ImagePanelButtonListener implements ActionListener {
                             Card_1 card_1 = new Card_1();
                             frame2.board[row][column] = card_1;
                         }
-                        if(cardnumber == 2){
+                        else if(cardnumber == 2){
                             Card_2 card_2 = new Card_2();
                             frame2.board[row][column] = card_2;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             Card_3 card_3 = new Card_3();
                             frame2.board[row][column] = card_3;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             Card_4 card_4 = new Card_4();
                             frame2.board[row][column] = card_4;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             Card_5 card_5 = new Card_5();
                             frame2.board[row][column] = card_5;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             Card_6 card_6 = new Card_6();
                             frame2.board[row][column] = card_6;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             Card_7 card_7 = new Card_7();
                             frame2.board[row][column] = card_7;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             Card_8 card_8 = new Card_8();
                             frame2.board[row][column] = card_8;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             Card_9 card_9 = new Card_9();
                             frame2.board[row][column] = card_9;
                         }
                         System.out.println(frame2.mainPanelButtonIndex[3] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
-                        System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println("Puzzle " + cardnumber + " is placed into square " + "[" + row + "]" + "[" + column + "]");
                         System.out.println();
                     }
-                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 5){
+                    else if (Integer.parseInt(frame2.getSelectedButtonName()) == 5){
                         int row = 1;
                         int column = 1;
                         int cardnumber = imagePanelButtonIndex + 1;
@@ -232,43 +232,43 @@ public class ImagePanelButtonListener implements ActionListener {
                             Card_1 card_1 = new Card_1();
                             frame2.board[row][column] = card_1;
                         }
-                        if(cardnumber == 2){
+                        else if(cardnumber == 2){
                             Card_2 card_2 = new Card_2();
                             frame2.board[row][column] = card_2;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             Card_3 card_3 = new Card_3();
                             frame2.board[row][column] = card_3;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             Card_4 card_4 = new Card_4();
                             frame2.board[row][column] = card_4;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             Card_5 card_5 = new Card_5();
                             frame2.board[row][column] = card_5;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             Card_6 card_6 = new Card_6();
                             frame2.board[row][column] = card_6;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             Card_7 card_7 = new Card_7();
                             frame2.board[row][column] = card_7;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             Card_8 card_8 = new Card_8();
                             frame2.board[row][column] = card_8;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             Card_9 card_9 = new Card_9();
                             frame2.board[row][column] = card_9;
                         }
                         System.out.println(frame2.mainPanelButtonIndex[4] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
-                        System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println("Puzzle " + cardnumber + " is placed into square " + "[" + row + "]" + "[" + column + "]");
                         System.out.println();
                     }
-                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 6){
+                    else if (Integer.parseInt(frame2.getSelectedButtonName()) == 6){
                         int row = 1;
                         int column = 2;
                         int cardnumber = imagePanelButtonIndex + 1;
@@ -276,43 +276,43 @@ public class ImagePanelButtonListener implements ActionListener {
                             Card_1 card_1 = new Card_1();
                             frame2.board[row][column] = card_1;
                         }
-                        if(cardnumber == 2){
+                        else if(cardnumber == 2){
                             Card_2 card_2 = new Card_2();
                             frame2.board[row][column] = card_2;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             Card_3 card_3 = new Card_3();
                             frame2.board[row][column] = card_3;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             Card_4 card_4 = new Card_4();
                             frame2.board[row][column] = card_4;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             Card_5 card_5 = new Card_5();
                             frame2.board[row][column] = card_5;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             Card_6 card_6 = new Card_6();
                             frame2.board[row][column] = card_6;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             Card_7 card_7 = new Card_7();
                             frame2.board[row][column] = card_7;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             Card_8 card_8 = new Card_8();
                             frame2.board[row][column] = card_8;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             Card_9 card_9 = new Card_9();
                             frame2.board[row][column] = card_9;
                         }
                         System.out.println(frame2.mainPanelButtonIndex[5] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
-                        System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println("Puzzle " + cardnumber + " is placed into square " + "[" + row + "]" + "[" + column + "]");
                         System.out.println();
                     }
-                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 7){
+                    else if (Integer.parseInt(frame2.getSelectedButtonName()) == 7){
                         int row = 2;
                         int column = 0;
                         int cardnumber = imagePanelButtonIndex + 1;
@@ -324,39 +324,39 @@ public class ImagePanelButtonListener implements ActionListener {
                             Card_2 card_2 = new Card_2();
                             frame2.board[row][column] = card_2;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             Card_3 card_3 = new Card_3();
                             frame2.board[row][column] = card_3;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             Card_4 card_4 = new Card_4();
                             frame2.board[row][column] = card_4;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             Card_5 card_5 = new Card_5();
                             frame2.board[row][column] = card_5;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             Card_6 card_6 = new Card_6();
                             frame2.board[row][column] = card_6;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             Card_7 card_7 = new Card_7();
                             frame2.board[row][column] = card_7;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             Card_8 card_8 = new Card_8();
                             frame2.board[row][column] = card_8;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             Card_9 card_9 = new Card_9();
                             frame2.board[row][column] = card_9;
                         }
                         System.out.println(frame2.mainPanelButtonIndex[6] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
-                        System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println("Puzzle " + cardnumber + " is placed into square " + "[" + row + "]" + "[" + column + "]");
                         System.out.println();
                     }
-                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 8){
+                    else if (Integer.parseInt(frame2.getSelectedButtonName()) == 8){
                         int row = 2;
                         int column = 1;
                         int cardnumber = imagePanelButtonIndex + 1;
@@ -364,43 +364,43 @@ public class ImagePanelButtonListener implements ActionListener {
                             Card_1 card_1 = new Card_1();
                             frame2.board[row][column] = card_1;
                         }
-                        if(cardnumber == 2){
+                        else if(cardnumber == 2){
                             Card_2 card_2 = new Card_2();
                             frame2.board[row][column] = card_2;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             Card_3 card_3 = new Card_3();
                             frame2.board[row][column] = card_3;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             Card_4 card_4 = new Card_4();
                             frame2.board[row][column] = card_4;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             Card_5 card_5 = new Card_5();
                             frame2.board[row][column] = card_5;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             Card_6 card_6 = new Card_6();
                             frame2.board[row][column] = card_6;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             Card_7 card_7 = new Card_7();
                             frame2.board[row][column] = card_7;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             Card_8 card_8 = new Card_8();
                             frame2.board[row][column] = card_8;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             Card_9 card_9 = new Card_9();
                             frame2.board[row][column] = card_9;
                         }
                         System.out.println(frame2.mainPanelButtonIndex[7] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
-                        System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println("Puzzle " + cardnumber + " is placed into square " + "[" + row + "]" + "[" + column + "]");
                         System.out.println();
                     }
-                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 9){
+                    else if (Integer.parseInt(frame2.getSelectedButtonName()) == 9){
                         int row = 2;
                         int column = 2;
                         int cardnumber = imagePanelButtonIndex + 1;
@@ -408,44 +408,45 @@ public class ImagePanelButtonListener implements ActionListener {
                             Card_1 card_1 = new Card_1();
                             frame2.board[row][column] = card_1;
                         }
-                        if(cardnumber == 2){
+                        else if(cardnumber == 2){
                             Card_2 card_2 = new Card_2();
                             frame2.board[row][column] = card_2;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             Card_3 card_3 = new Card_3();
                             frame2.board[row][column] = card_3;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             Card_4 card_4 = new Card_4();
                             frame2.board[row][column] = card_4;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             Card_5 card_5 = new Card_5();
                             frame2.board[row][column] = card_5;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             Card_6 card_6 = new Card_6();
                             frame2.board[row][column] = card_6;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             Card_7 card_7 = new Card_7();
                             frame2.board[row][column] = card_7;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             Card_8 card_8 = new Card_8();
                             frame2.board[row][column] = card_8;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             Card_9 card_9 = new Card_9();
                             frame2.board[row][column] = card_9;
                         }
                         System.out.println(frame2.mainPanelButtonIndex[8] + " " + frame2.imagePanelButtonIndex[imagePanelButtonIndex]);
-                        System.out.println("Puzzle " + cardnumber + " is place into square " + "[" + row + "]" + "[" + column + "]");
+                        System.out.println("Puzzle " + cardnumber + " is placed into square " + "[" + row + "]" + "[" + column + "]");
                         System.out.println();
                     }
                 }
-            } else {
+            }
+            else {
                 if (frame2.getSelectedImagePanelButton().getIcon() != null) {
                     // If it was blank, restore the initial image of the clicked button in the image panel
                     imagePanelButton.setIcon(initialImageIcons[imagePanelButtonIndex]);
@@ -458,300 +459,300 @@ public class ImagePanelButtonListener implements ActionListener {
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 2){
+                        else if(cardnumber == 2){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             frame2.board[row][column] = null;
                         }
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
                         System.out.println();
                     }
-                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 2){
+                    else if (Integer.parseInt(frame2.getSelectedButtonName()) == 2){
                         int row = 0;
                         int column = 1;
                         int cardnumber = imagePanelButtonIndex + 1;
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 2){
+                        else if(cardnumber == 2){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             frame2.board[row][column] = null;
                         }
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
                         System.out.println();
                     }
-                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 3){
+                    else if (Integer.parseInt(frame2.getSelectedButtonName()) == 3){
                         int row = 0;
                         int column = 1;
                         int cardnumber = imagePanelButtonIndex + 1;
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 2){
+                        else if(cardnumber == 2){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             frame2.board[row][column] = null;
                         }
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
                         System.out.println();
                     }
-                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 4){
+                    else if (Integer.parseInt(frame2.getSelectedButtonName()) == 4){
                         int row = 1;
                         int column = 0;
                         int cardnumber = imagePanelButtonIndex + 1;
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 2){
+                        else if(cardnumber == 2){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             frame2.board[row][column] = null;
                         }
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
                         System.out.println();
                     }
-                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 5){
+                    else if (Integer.parseInt(frame2.getSelectedButtonName()) == 5){
                         int row = 1;
                         int column = 1;
                         int cardnumber = imagePanelButtonIndex + 1;
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 2){
+                        else if(cardnumber == 2){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             frame2.board[row][column] = null;
                         }
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
                         System.out.println();
                     }
-                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 6){
+                    else if (Integer.parseInt(frame2.getSelectedButtonName()) == 6){
                         int row = 1;
                         int column = 2;
                         int cardnumber = imagePanelButtonIndex + 1;
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 2){
+                        else if(cardnumber == 2){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             frame2.board[row][column] = null;
                         }
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
                         System.out.println();
                     }
-                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 7){
+                    else if (Integer.parseInt(frame2.getSelectedButtonName()) == 7){
                         int row = 2;
                         int column = 0;
                         int cardnumber = imagePanelButtonIndex + 1;
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 2){
+                        else if(cardnumber == 2){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             frame2.board[row][column] = null;
                         }
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
                         System.out.println();
                     }
-                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 8){
+                    else if (Integer.parseInt(frame2.getSelectedButtonName()) == 8){
                         int row = 2;
                         int column = 1;
                         int cardnumber = imagePanelButtonIndex + 1;
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 2){
+                        else if(cardnumber == 2){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             frame2.board[row][column] = null;
                         }
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
                         System.out.println();
                     }
-                    if (Integer.parseInt(frame2.getSelectedButtonName()) == 9){
+                    else if (Integer.parseInt(frame2.getSelectedButtonName()) == 9){
                         int row = 2;
                         int column = 2;
                         int cardnumber = imagePanelButtonIndex + 1;
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 2){
+                        else if(cardnumber == 2){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 3){
+                        else if(cardnumber == 3){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 4){
+                        else if(cardnumber == 4){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 5){
+                        else if(cardnumber == 5){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 6){
+                        else if(cardnumber == 6){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 7){
+                        else if(cardnumber == 7){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 8){
+                        else if(cardnumber == 8){
                             frame2.board[row][column] = null;
                         }
-                        if(cardnumber == 9){
+                        else if(cardnumber == 9){
                             frame2.board[row][column] = null;
                         }
                         System.out.println("Puzzle " + cardnumber + " is removed from square " + "[" + row + "]" + "[" + column + "]");
