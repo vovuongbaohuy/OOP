@@ -8,12 +8,12 @@ import java.awt.image.BufferedImage;
 public class RotatePanelButtonListener implements ActionListener {
     private final int buttonNumber;
     private final JPanel mainPanel;
-    private final int buttonIndex;
+    private final Frame2 frame2;
 
-    public RotatePanelButtonListener(int buttonNumber, JPanel mainPanel, int buttonIndex) {
+    public RotatePanelButtonListener(int buttonNumber, JPanel mainPanel, Frame2 frame2) {
         this.buttonNumber = buttonNumber;
         this.mainPanel = mainPanel;
-        this.buttonIndex = buttonIndex + 1;
+        this.frame2 =  frame2;
     }
 
     @Override
@@ -37,69 +37,7 @@ public class RotatePanelButtonListener implements ActionListener {
             // Rotate the image
             Image rotatedImage = rotateImage(buttonIcon.getImage(), Math.toRadians(90));
             button.setIcon(new ImageIcon(rotatedImage));
-            if (buttonNumber == 1) {
-                int row = 0;
-                int column = 0;
-                Card_1 card_1 = new Card_1();
-                card_1.rotateRight();
-                System.out.println("Puzzle " + buttonIndex + " in square " + "[" + row + "]" + "[" + column +"]" + " rotate right");
-            }
-            if (buttonNumber == 2) {
-                int row = 0;
-                int column = 1;
-                Card_2 card_2 = new Card_2();
-                card_2.rotateRight();
-                System.out.println("Puzzle " + buttonIndex + " in square " + "[" + row + "]" + "[" + column +"]" + " rotate right");
-            }
-            if (buttonNumber == 3) {
-                int row = 0;
-                int column = 2;
-                Card_3 card_3 = new Card_3();
-                card_3.rotateRight();
-                System.out.println("Puzzle " + buttonIndex + " in square " + "[" + row + "]" + "[" + column +"]" + " rotate right");
-            }
-            if (buttonNumber == 4) {
-                int row = 1;
-                int column = 0;
-                Card_4 card_4 = new Card_4();
-                card_4.rotateRight();
-                System.out.println("Puzzle " + buttonIndex + " in square " + "[" + row + "]" + "[" + column +"]" + " rotate right");
-            }
-            if (buttonNumber == 5) {
-                int row = 1;
-                int column = 1;
-                Card_5 card_5 = new Card_5();
-                card_5.rotateRight();
-                System.out.println("Puzzle " + buttonIndex + " in square " + "[" + row + "]" + "[" + column +"]" + " rotate right");
-            }
-            if (buttonNumber == 6) {
-                int row = 1;
-                int column = 2;
-                Card_6 card_6 = new Card_6();
-                card_6.rotateRight();
-                System.out.println("Puzzle " + buttonIndex + " in square " + "[" + row + "]" + "[" + column +"]" + " rotate right");
-            }
-            if (buttonNumber == 7) {
-                int row = 2;
-                int column = 0;
-                Card_7 card_7 = new Card_7();
-                card_7.rotateRight();
-                System.out.println("Puzzle " + buttonIndex + " in square " + "[" + row + "]" + "[" + column +"]" + " rotate right");
-            }
-            if (buttonNumber == 8) {
-                int row = 2;
-                int column = 1;
-                Card_8 card_8 = new Card_8();
-                card_8.rotateRight();
-                System.out.println("Puzzle " + buttonIndex + " in square " + "[" + row + "]" + "[" + column +"]" + " rotate right");
-            }
-            if (buttonNumber == 9) {
-                int row = 2;
-                int column = 2;
-                Card_9 card_9 = new Card_9();
-                card_9.rotateRight();
-                System.out.println("Puzzle " + buttonIndex + " in square " + "[" + row + "]" + "[" + column +"]" + " rotate right");
-            }
+
         }
     }
 

@@ -3,7 +3,7 @@ public class Card_5 extends Card
     public Card_5()
     {
         super();
-        cardName = "05";
+        cardName = "5";
         card.put("top", 'd');
         card.put("left", 'B');
         card.put("bottom", 'A');
