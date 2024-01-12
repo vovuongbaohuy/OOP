@@ -44,11 +44,6 @@ public class Frame2 extends DefaultFrame {
         super.getContentPane().setBackground(new Color(55, 159, 55));
         List<Integer> clickedButtonIndexes = new ArrayList<>();
         // Initializing card board
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                board[i][j] = new Card();
-            }
-        }
         // Create the main panel with GridLayout
 
         mainPanel.setLayout(new GridLayout(3, 3));

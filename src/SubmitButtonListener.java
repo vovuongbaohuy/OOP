@@ -19,9 +19,9 @@ public class SubmitButtonListener implements ActionListener {
             if (result == JOptionPane.YES_OPTION) {
                 // User clicked "Yes", perform your desired action (e.g., call a check function)
                 Checkfunction checkfunction = new Checkfunction();
-                checkfunction.printSquaredMatrix(frame2.board);
+                checkfunction.printSquaredMatrix(frame2.getBoard());
 
-                boolean checkSolution = Checkfunction.checkSolution(frame2.board);
+                boolean checkSolution = Checkfunction.checkSolution(frame2.getBoard());
                 System.out.println(checkSolution);
             }
         } else {
