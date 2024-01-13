@@ -52,7 +52,7 @@ public class RotatePanelButtonListener implements ActionListener {
                 int row = 0;
                 int column = 0;
                 if (frame2.board[row][column] != null) {
-                    if (x[buttonNumber - 1] == 0) {
+                    if (frame2.rotateTime[buttonNumber - 1] == 0) {
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -100,9 +100,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " first time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 1){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 1){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -159,9 +159,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " second time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 2){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 2){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -227,9 +227,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " third time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 3){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 3){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -304,7 +304,7 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " is reset default");
                         System.out.println();
-                        x[buttonNumber - 1] = 0;
+                        frame2.rotateTime[buttonNumber - 1] = 0;
                     }
                 }
             }
@@ -312,7 +312,7 @@ public class RotatePanelButtonListener implements ActionListener {
                 int row = 0;
                 int column = 1;
                 if (frame2.board[row][column] != null) {
-                    if (x[buttonNumber - 1] == 0) {
+                    if (frame2.rotateTime[buttonNumber - 1] == 0) {
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -360,9 +360,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " first time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 1){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 1){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -419,9 +419,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " second time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 2){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 2){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -487,9 +487,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " third time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 3){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 3){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -564,7 +564,7 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " is reset default");
                         System.out.println();
-                        x[buttonNumber - 1] = 0;
+                        frame2.rotateTime[buttonNumber - 1] = 0;
                     }
                 }
             }
@@ -572,7 +572,7 @@ public class RotatePanelButtonListener implements ActionListener {
                 int row = 0;
                 int column = 2;
                 if (frame2.board[row][column] != null) {
-                    if (x[buttonNumber - 1] == 0) {
+                    if (frame2.rotateTime[buttonNumber - 1] == 0) {
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -620,9 +620,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " first time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 1){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 1){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -679,9 +679,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " second time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 2){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 2){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -747,9 +747,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " third time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 3){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 3){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -824,7 +824,7 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " is reset default");
                         System.out.println();
-                        x[buttonNumber - 1] = 0;
+                        frame2.rotateTime[buttonNumber - 1] = 0;
                     }
                 }
             }
@@ -832,7 +832,7 @@ public class RotatePanelButtonListener implements ActionListener {
                 int row = 1;
                 int column = 0;
                 if (frame2.board[row][column] != null) {
-                    if (x[buttonNumber - 1] == 0) {
+                    if (frame2.rotateTime[buttonNumber - 1] == 0) {
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -880,9 +880,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " first time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 1){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 1){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -939,9 +939,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " second time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 2){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 2){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -1007,9 +1007,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " third time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 3){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 3){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -1084,7 +1084,7 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " is reset default");
                         System.out.println();
-                        x[buttonNumber - 1] = 0;
+                        frame2.rotateTime[buttonNumber - 1] = 0;
                     }
                 }
             }
@@ -1092,7 +1092,7 @@ public class RotatePanelButtonListener implements ActionListener {
                 int row = 1;
                 int column = 1;
                 if (frame2.board[row][column] != null) {
-                    if (x[buttonNumber - 1] == 0) {
+                    if (frame2.rotateTime[buttonNumber - 1] == 0) {
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -1140,9 +1140,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " first time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 1){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 1){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -1199,9 +1199,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " second time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 2){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 2){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -1267,9 +1267,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " third time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 3){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 3){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -1344,7 +1344,7 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " is reset default");
                         System.out.println();
-                        x[buttonNumber - 1] = 0;
+                        frame2.rotateTime[buttonNumber - 1] = 0;
                     }
                 }
             }
@@ -1352,7 +1352,7 @@ public class RotatePanelButtonListener implements ActionListener {
                 int row = 1;
                 int column = 2;
                 if (frame2.board[row][column] != null) {
-                    if (x[buttonNumber - 1] == 0) {
+                    if (frame2.rotateTime[buttonNumber - 1] == 0) {
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -1400,9 +1400,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " first time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 1){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 1){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -1459,9 +1459,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " second time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 2){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 2){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -1527,9 +1527,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " third time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 3){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 3){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -1604,7 +1604,7 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " is reset default");
                         System.out.println();
-                        x[buttonNumber - 1] = 0;
+                        frame2.rotateTime[buttonNumber - 1] = 0;
                     }
                 }
             }
@@ -1612,7 +1612,7 @@ public class RotatePanelButtonListener implements ActionListener {
                 int row = 2;
                 int column = 0;
                 if (frame2.board[row][column] != null) {
-                    if (x[buttonNumber - 1] == 0) {
+                    if (frame2.rotateTime[buttonNumber - 1] == 0) {
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -1660,9 +1660,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " first time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 1){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 1){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -1719,9 +1719,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " second time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 2){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 2){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -1787,9 +1787,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " third time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 3){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 3){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -1864,7 +1864,7 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " is reset default");
                         System.out.println();
-                        x[buttonNumber - 1] = 0;
+                        frame2.rotateTime[buttonNumber - 1] = 0;
                     }
                 }
             }
@@ -1872,7 +1872,7 @@ public class RotatePanelButtonListener implements ActionListener {
                 int row = 2;
                 int column = 1;
                 if (frame2.board[row][column] != null) {
-                    if (x[buttonNumber - 1] == 0) {
+                    if (frame2.rotateTime[buttonNumber - 1] == 0) {
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -1920,9 +1920,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " first time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 1){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 1){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -1979,9 +1979,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " second time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 2){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 2){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -2047,9 +2047,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " third time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 3){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 3){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -2124,7 +2124,7 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " is reset default");
                         System.out.println();
-                        x[buttonNumber - 1] = 0;
+                        frame2.rotateTime[buttonNumber - 1] = 0;
                     }
                 }
             }
@@ -2132,7 +2132,7 @@ public class RotatePanelButtonListener implements ActionListener {
                 int row = 2;
                 int column = 2;
                 if (frame2.board[row][column] != null) {
-                    if (x[buttonNumber - 1] == 0) {
+                    if (frame2.rotateTime[buttonNumber - 1] == 0) {
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -2180,9 +2180,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " first time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 1){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 1){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -2239,9 +2239,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " second time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 2){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 2){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -2307,9 +2307,9 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " rotate right" + " third time");
                         System.out.println();
-                        x[buttonNumber - 1] += 1;
+                        frame2.rotateTime[buttonNumber - 1] += 1;
                     }
-                    else if (x[buttonNumber - 1] == 3){
+                    else if (frame2.rotateTime[buttonNumber - 1] == 3){
                         if (Objects.equals(frame2.board[row][column].cardName, "1"))
                         {
                             card_1.rotateRight();
@@ -2384,7 +2384,7 @@ public class RotatePanelButtonListener implements ActionListener {
                         }
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " in square " + "[" + row + "]" + "[" + column + "]" + " is reset default");
                         System.out.println();
-                        x[buttonNumber - 1] = 0;
+                        frame2.rotateTime[buttonNumber - 1] = 0;
                     }
                 }
             }

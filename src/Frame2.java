@@ -8,6 +8,7 @@ public class Frame2 extends DefaultFrame {
     private ImageIcon[] initialImageIcons;
     public JPanel mainPanel = new JPanel();
     public JPanel imagePanel = new JPanel();
+    public int[] rotateTime = new int[9];
 
     public Card[][] getBoard() {
         return board;
