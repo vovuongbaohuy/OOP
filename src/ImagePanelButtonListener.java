@@ -36,7 +36,7 @@ public class ImagePanelButtonListener implements ActionListener {
                 ImageIcon originalImageIcon = new ImageIcon(imagePath);
 
                 // Scale the image to 150x150 pixels
-                Image scaledImage = originalImageIcon.getImage().getScaledInstance(150, 150, Image.SCALE_REPLICATE);
+                Image scaledImage = originalImageIcon.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
                 ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
                 // Replace the image in the main panel button with the scaled image

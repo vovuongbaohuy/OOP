@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Frame1 extends DefaultFrame {
     private JLabel backgroundLabel;
@@ -29,14 +27,7 @@ public class Frame1 extends DefaultFrame {
         button.setOpaque(false);
         button.setContentAreaFilled(false);
         button.setBorderPainted(false);
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                close();
-                Frame2 frame2 = new Frame2();
-                frame2.setVisible(true);
-            }
-        });
+        button.addActionListener(new NewFrameInitializeButtonListener());
 
         // Add the components to the panel
         panel.add(button);
