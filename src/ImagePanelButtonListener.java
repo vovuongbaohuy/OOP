@@ -1,5 +1,4 @@
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,8 +9,6 @@ public class ImagePanelButtonListener implements ActionListener {
     private int imagePanelButtonIndex;
     private final ImageIcon[] initialImageIcons;
     private final Frame2 frame2;
-    public Card[][] board = new Card[3][3];
-
     public ImagePanelButtonListener(JButton imagePanelButton, int imagePanelButtonIndex,
                                     JButton selectedImagePanelButton, ImageIcon[] initialImageIcons,
                                     List<Integer> clickedButtonIndexes, Frame2 frame2) {
@@ -45,6 +42,7 @@ public class ImagePanelButtonListener implements ActionListener {
                 // Replace the image in the main panel button with the scaled image
                 if (frame2.getSelectedImagePanelButton().getIcon() == null) {
                     frame2.getSelectedImagePanelButton().setIcon(scaledIcon);
+                    updateImagePathForButton(frame2.getSelectedImagePanelButton(), imagePath);
                     // Set the icon of the clicked button in the image panel to null (remove the icon)
                     imagePanelButton.setIcon(null);
                     // updateClickedButtonIndexes(buttonIndex);
@@ -449,7 +447,28 @@ public class ImagePanelButtonListener implements ActionListener {
             else {
                 if (frame2.getSelectedImagePanelButton().getIcon() != null) {
                     // If it was blank, restore the initial image of the clicked button in the image panel
-                    imagePanelButton.setIcon(initialImageIcons[imagePanelButtonIndex]);
+//                    Image scaledImage = originalImageIcon.getImage().getScaledInstance(150, 150, Image.SCALE_REPLICATE);
+//                    ImageIcon scaledIcon = new ImageIcon(scaledImage);
+                    // Get the file path of the image from the image panel button
+                    String imagePath = getImagePathFromButton(frame2.getSelectedImagePanelButton());
+
+                    // Create an ImageIcon directly from the file path
+                    ImageIcon originalImageIcon = new ImageIcon(imagePath);
+
+                    // Get the original image from the ImageIcon
+                    Image originalImage = originalImageIcon.getImage();
+
+                    // Scale the image to 150x150 pixels
+                    Image scaledImage = originalImage.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+
+                    // Create a new ImageIcon from the scaled image
+                    ImageIcon scaledIcon = new ImageIcon(scaledImage);
+
+                    // Set the scaled ImageIcon to the imagePanelButton
+                    imagePanelButton.setIcon(scaledIcon);
+
+                    // update image path for buttons in image panel
+                    updateImagePathForButton(imagePanelButton, imagePath);
                     // Reset the icon of the clicked button in the main panel to blank
                     frame2.getSelectedImagePanelButton().setIcon(null);
                     if (Integer.parseInt(frame2.getSelectedButtonName()) == 1){
@@ -458,7 +477,13 @@ public class ImagePanelButtonListener implements ActionListener {
                         int cardnumber = imagePanelButtonIndex + 1;
                         imagePanelButtonIndex = Integer.parseInt(frame2.board[row][column].cardName) - 1;
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+
+                        // set the rotateTime[frame2.getSelectedButtonName] = 0 when puzzle piece is remove
+                        System.out.println("rotateTime[" + imagePanelButtonIndex + "] " + "before being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
+                        frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1] = 0;
+                        System.out.println("rotateTime[" + Integer.parseInt(frame2.getSelectedButtonName()) + "] " + "after being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
                         System.out.println();
+
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
@@ -493,7 +518,13 @@ public class ImagePanelButtonListener implements ActionListener {
                         int cardnumber = imagePanelButtonIndex + 1;
                         imagePanelButtonIndex = Integer.parseInt(frame2.board[row][column].cardName) - 1;
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+
+                        // set the rotateTime[frame2.getSelectedButtonName] = 0 when puzzle piece is remove
+                        System.out.println("rotateTime[" + imagePanelButtonIndex + "] " + "before being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
+                        frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1] = 0;
+                        System.out.println("rotateTime[" + Integer.parseInt(frame2.getSelectedButtonName()) + "] " + "after being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
                         System.out.println();
+
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
@@ -524,11 +555,17 @@ public class ImagePanelButtonListener implements ActionListener {
                     }
                     else if (Integer.parseInt(frame2.getSelectedButtonName()) == 3){
                         int row = 0;
-                        int column = 1;
+                        int column = 2;
                         int cardnumber = imagePanelButtonIndex + 1;
                         imagePanelButtonIndex = Integer.parseInt(frame2.board[row][column].cardName) - 1;
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+
+                        // set the rotateTime[frame2.getSelectedButtonName] = 0 when puzzle piece is remove
+                        System.out.println("rotateTime[" + imagePanelButtonIndex + "] " + "before being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
+                        frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1] = 0;
+                        System.out.println("rotateTime[" + Integer.parseInt(frame2.getSelectedButtonName()) + "] " + "after being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
                         System.out.println();
+
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
@@ -563,7 +600,13 @@ public class ImagePanelButtonListener implements ActionListener {
                         int cardnumber = imagePanelButtonIndex + 1;
                         imagePanelButtonIndex = Integer.parseInt(frame2.board[row][column].cardName) - 1;
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+
+                        // set the rotateTime[frame2.getSelectedButtonName] = 0 when puzzle piece is remove
+                        System.out.println("rotateTime[" + imagePanelButtonIndex + "] " + "before being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
+                        frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1] = 0;
+                        System.out.println("rotateTime[" + Integer.parseInt(frame2.getSelectedButtonName()) + "] " + "after being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
                         System.out.println();
+
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
@@ -598,7 +641,13 @@ public class ImagePanelButtonListener implements ActionListener {
                         int cardnumber = imagePanelButtonIndex + 1;
                         imagePanelButtonIndex = Integer.parseInt(frame2.board[row][column].cardName) - 1;
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+
+                        // set the rotateTime[frame2.getSelectedButtonName] = 0 when puzzle piece is remove
+                        System.out.println("rotateTime[" + imagePanelButtonIndex + "] " + "before being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
+                        frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1] = 0;
+                        System.out.println("rotateTime[" + Integer.parseInt(frame2.getSelectedButtonName()) + "] " + "after being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
                         System.out.println();
+
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
@@ -633,7 +682,13 @@ public class ImagePanelButtonListener implements ActionListener {
                         int cardnumber = imagePanelButtonIndex + 1;
                         imagePanelButtonIndex = Integer.parseInt(frame2.board[row][column].cardName) - 1;
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+
+                        // set the rotateTime[frame2.getSelectedButtonName] = 0 when puzzle piece is remove
+                        System.out.println("rotateTime[" + imagePanelButtonIndex + "] " + "before being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
+                        frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1] = 0;
+                        System.out.println("rotateTime[" + Integer.parseInt(frame2.getSelectedButtonName()) + "] " + "after being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
                         System.out.println();
+
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
@@ -668,7 +723,13 @@ public class ImagePanelButtonListener implements ActionListener {
                         int cardnumber = imagePanelButtonIndex + 1;
                         imagePanelButtonIndex = Integer.parseInt(frame2.board[row][column].cardName) - 1;
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+
+                        // set the rotateTime[frame2.getSelectedButtonName] = 0 when puzzle piece is remove
+                        System.out.println("rotateTime[" + imagePanelButtonIndex + "] " + "before being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
+                        frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1] = 0;
+                        System.out.println("rotateTime[" + Integer.parseInt(frame2.getSelectedButtonName()) + "] " + "after being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
                         System.out.println();
+
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
@@ -703,7 +764,13 @@ public class ImagePanelButtonListener implements ActionListener {
                         int cardnumber = imagePanelButtonIndex + 1;
                         imagePanelButtonIndex = Integer.parseInt(frame2.board[row][column].cardName) - 1;
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+
+                        // set the rotateTime[frame2.getSelectedButtonName] = 0 when puzzle piece is remove
+                        System.out.println("rotateTime[" + imagePanelButtonIndex + "] " + "before being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
+                        frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1] = 0;
+                        System.out.println("rotateTime[" + Integer.parseInt(frame2.getSelectedButtonName()) + "] " + "after being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
                         System.out.println();
+
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
@@ -738,7 +805,13 @@ public class ImagePanelButtonListener implements ActionListener {
                         int cardnumber = imagePanelButtonIndex + 1;
                         imagePanelButtonIndex = Integer.parseInt(frame2.board[row][column].cardName) - 1;
                         System.out.println("Puzzle " + frame2.board[row][column].cardName + " is removed from square " + "[" + row + "]" + "[" + column + "]");
+
+                        // set the rotateTime[frame2.getSelectedButtonName] = 0 when puzzle piece is remove
+                        System.out.println("rotateTime[" + imagePanelButtonIndex + "] " + "before being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
+                        frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1] = 0;
+                        System.out.println("rotateTime[" + Integer.parseInt(frame2.getSelectedButtonName()) + "] " + "after being remove: " + frame2.rotateTime[Integer.parseInt(frame2.getSelectedButtonName()) - 1]);
                         System.out.println();
+
                         if(cardnumber == 1){
                             frame2.board[row][column] = null;
                         }
@@ -777,5 +850,9 @@ public class ImagePanelButtonListener implements ActionListener {
     private String getImagePathFromButton(JButton button) {
         // Assuming that the image path is stored as the action command of the button
         return button.getActionCommand();
+    }
+    private void updateImagePathForButton(JButton button, String newImagePath) {
+        // Set the new image path as the action command of the button
+        button.setActionCommand(newImagePath);
     }
 }
