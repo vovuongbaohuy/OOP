@@ -23,6 +23,20 @@ public class SubmitButtonListener implements ActionListener {
 
                 boolean checkSolution = Checkfunction.checkSolution(frame2.getBoard());
                 System.out.println(checkSolution);
+                if (checkSolution){
+                    CongratulationFrame congratulationFrame = new CongratulationFrame();
+                    congratulationFrame.setVisible(true);
+
+                    // old frame close
+                    ((JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource())).setVisible(false);
+                }
+                else {
+                    LooserFrame looserFrame = new LooserFrame();
+                    looserFrame.setVisible(true);
+
+                    // old frame close
+                    ((JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource())).setVisible(false);
+                }
             }
         } else {
             // Handle the case where not all icons are null if needed
