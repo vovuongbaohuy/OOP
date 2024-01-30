@@ -23,11 +23,17 @@ public class Frame1 extends DefaultFrame {
 
         // Create the button
         JButton button = new JButton("Play");
-        button.setBounds(500, 300, 200, 200);
+        button.setBounds(500, 415, 200, 55);
+        button.setFont(new Font("Arial", Font.BOLD, 30));
         button.setOpaque(false);
-        button.setContentAreaFilled(false);
-        button.setBorderPainted(false);
+        button.setContentAreaFilled(true);
+        button.setBorderPainted(true);
         button.addActionListener(new NewFrameInitializeButtonListener());
+
+
+//        JButton button = new JButton("Play");
+//        button.setFont(new Font("Arial", Font.BOLD, 18));
+//        button.setBounds(500, 300, 200, 200);
 
         // Add the components to the panel
         panel.add(button);
