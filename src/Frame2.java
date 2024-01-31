@@ -169,6 +169,7 @@ public class Frame2 extends DefaultFrame {
         button.setBorderPainted(true);
         button.setContentAreaFilled(false);
         button.setPreferredSize(new Dimension(100, 100));
+        button.addMouseListener(new HoverEffectMouseListener(button));
 
         // Set the image path as the action command
         button.setActionCommand(imagePath);
@@ -181,7 +182,7 @@ public class Frame2 extends DefaultFrame {
         button.setBorderPainted(true);
         button.setContentAreaFilled(false);
         button.setPreferredSize(new Dimension(50, 50));
-
+        button.addMouseListener(new HoverEffectMouseListener(button));
         return button;
     }
     public String getSelectedButtonName() {
