@@ -20,7 +20,7 @@ public class Frame2 extends DefaultFrame {
     public int[] mainPanelButtonIndex = new int[9];
     public int[] imagePanelButtonIndex = new int[9];
     public Timer timer;
-    public final int TIME_LIMIT = 10; // 5 minutes in seconds
+    public final int TIME_LIMIT = 5*60; // 5 minutes in seconds
     public JLabel timerLabel;
 
     public Frame2() {
@@ -45,7 +45,7 @@ public class Frame2 extends DefaultFrame {
 
         // Create the image panel with GridLayout
         imagePanel.setLayout(new GridLayout(1, 9));
-        imagePanel.setBounds(150, 650, 900, 100);
+        imagePanel.setBounds(150, 610, 900, 100);
         imagePanel.setBackground(new Color(20, 87, 20));
 
         // Create default layout for image panel buttons
@@ -82,7 +82,7 @@ public class Frame2 extends DefaultFrame {
         JButton submitButton = new JButton("Submit!");
         submitButton.setBackground(Color.white);
         submitButton.addActionListener(new SubmitButtonListener(this));
-        submitButton.setBounds(400, 600, 400, 50);
+        submitButton.setBounds(1200-300, 350, 200, 50);
         submitButton.addMouseListener(new HoverEffectMouseListener(submitButton));
         super.add(submitButton);
 
@@ -90,7 +90,7 @@ public class Frame2 extends DefaultFrame {
         JButton restartButton = new JButton("Restart");
         restartButton.setBackground(Color.WHITE);
         restartButton.addActionListener(new RestartButtonListener());
-        restartButton.setBounds(400, 550, 400, 50);
+        restartButton.setBounds(1200-300, 250, 200, 50);
         restartButton.addMouseListener(new HoverEffectMouseListener(restartButton));
         super.add(restartButton);
 

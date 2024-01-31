@@ -22,12 +22,20 @@ public class Frame1 extends DefaultFrame {
         panel.setLayout(null);
 
         // Create the button
-        JButton button = new JButton("Play");
-        button.setBounds(500, 300, 200, 200);
+        RoundedButton button = new RoundedButton("Play");
+        button.setBounds(500, 415, 200, 55);
+        button.setFont(new Font("Arial", Font.BOLD, 30));
         button.setOpaque(false);
         button.setContentAreaFilled(false);
+        button.setBackground(Color.CYAN); // change background color of the button
         button.setBorderPainted(false);
         button.addActionListener(new NewFrameInitializeButtonListener());
+        button.addMouseListener(new HoverEffectMouseListener(button));
+
+
+//        JButton button = new JButton("Play");
+//        button.setFont(new Font("Arial", Font.BOLD, 18));
+//        button.setBounds(500, 300, 200, 200);
 
         // Add the components to the panel
         panel.add(button);
