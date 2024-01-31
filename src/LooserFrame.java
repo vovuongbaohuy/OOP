@@ -19,6 +19,7 @@ public class LooserFrame extends DefaultFrame{
         button.setBorderPainted(false);
         button.setBackground(Color.CYAN);
         button.addActionListener(new NewFrameInitializeButtonListener());
+        button.addMouseListener(new HoverEffectMouseListener(button));
         super.add(button);
 
         // Add the label to the frame

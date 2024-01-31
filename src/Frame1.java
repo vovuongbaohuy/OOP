@@ -30,6 +30,7 @@ public class Frame1 extends DefaultFrame {
         button.setBackground(Color.CYAN); // change background color of the button
         button.setBorderPainted(false);
         button.addActionListener(new NewFrameInitializeButtonListener());
+        button.addMouseListener(new HoverEffectMouseListener(button));
 
 
 //        JButton button = new JButton("Play");

@@ -20,6 +20,7 @@ public class CongratulationFrame extends DefaultFrame {
         button.setContentAreaFilled(false);
         button.setBorderPainted(false);
         button.addActionListener(new NewFrameInitializeButtonListener());
+        button.addMouseListener(new HoverEffectMouseListener(button));
         super.add(button);
         // Add the label to the frame's content pane
         getContentPane().add(label);
