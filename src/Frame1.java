@@ -22,12 +22,13 @@ public class Frame1 extends DefaultFrame {
         panel.setLayout(null);
 
         // Create the button
-        JButton button = new JButton("Play");
+        RoundedButton button = new RoundedButton("Play");
         button.setBounds(500, 415, 200, 55);
         button.setFont(new Font("Arial", Font.BOLD, 30));
         button.setOpaque(false);
-        button.setContentAreaFilled(true);
-        button.setBorderPainted(true);
+        button.setContentAreaFilled(false);
+        button.setBackground(Color.CYAN); // change background color of the button
+        button.setBorderPainted(false);
         button.addActionListener(new NewFrameInitializeButtonListener());
 
 
