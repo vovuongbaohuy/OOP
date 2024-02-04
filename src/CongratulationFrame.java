@@ -13,7 +13,7 @@ public class CongratulationFrame extends DefaultFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon imageIcon = new ImageIcon("images/WinScene_DinosaurGame.jpg");
+                ImageIcon imageIcon = new ImageIcon("images/WinScene2_DinosaurGame.jpg");
                 Image image = imageIcon.getImage();
                 g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
             }
@@ -24,7 +24,7 @@ public class CongratulationFrame extends DefaultFrame {
 
         // Create the button
         RoundedButton button = new RoundedButton("Play Again");
-        button.setBounds(500, 700, 200, 55);
+        button.setBounds(500, 560, 200, 55);
         button.setFont(new Font("Arial", Font.BOLD, 30));
         button.setOpaque(false);
         button.setContentAreaFilled(false);
